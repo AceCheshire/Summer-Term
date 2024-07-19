@@ -19,13 +19,34 @@
     <Filter Include="源文件\Page">
       <UniqueIdentifier>{31b1a843-7254-4024-88fb-a179a606cb08}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Page\HomePage">
+    <Filter Include="源文件\Mouse">
+      <UniqueIdentifier>{57995c59-3355-4cbf-bb01-3d80eec718e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Scene">
+      <UniqueIdentifier>{d3f5c11b-a013-4d66-b464-ac6e5fe0517f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Scene\HomePage">
       <UniqueIdentifier>{f12a3cf2-ee20-4b19-a4d8-63255d837a7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Specific">
+      <UniqueIdentifier>{cd1107d3-046f-40c7-928d-d18ba3512e48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Specific\Scene">
+      <UniqueIdentifier>{a1840bec-27fb-4cca-ac37-88176708c37e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Specific\Scene\HomePage">
+      <UniqueIdentifier>{43180f58-3a78-467c-b4b0-8c7e172bf5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Link">
+      <UniqueIdentifier>{408315ba-5364-4c0a-bd2c-8686f3196f2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Reader">
+      <UniqueIdentifier>{8c16c3cf-8f48-45d4-a187-99f5b7595eb2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HomePageDisplay.cpp">
-      <Filter>源文件\Page\HomePage</Filter>
+      <Filter>源文件\Scene\HomePage</Filter>
     </ClCompile>
     <ClCompile Include="PageConfig.cpp">
       <Filter>源文件\Page</Filter>
@@ -33,10 +54,37 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MouseConfig.cpp">
+      <Filter>源文件\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkConst.h">
+      <Filter>头文件\Const</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkConfig.cpp">
+      <Filter>源文件\Link</Filter>
+    </ClCompile>
+    <ClCompile Include="ReaderConfig.cpp">
+      <Filter>源文件\Reader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PageConst.h">
       <Filter>头文件\Const</Filter>
     </ClInclude>
+    <ClInclude Include="MouseConst.h">
+      <Filter>头文件\Const</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneConst.h">
+      <Filter>头文件\Const</Filter>
+    </ClInclude>
+    <ClInclude Include="HomePageSp.h">
+      <Filter>头文件\Specific\Scene\HomePage</Filter>
+    </ClInclude>
+    <ClInclude Include="ReaderConst.h">
+      <Filter>头文件\Const</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="HomePageData.txt" />
   </ItemGroup>
 </Project>

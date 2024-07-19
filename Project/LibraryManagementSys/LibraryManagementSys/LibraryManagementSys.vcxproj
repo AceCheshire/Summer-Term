@@ -20,11 +20,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HomePageDisplay.cpp" />
+    <ClCompile Include="LinkConfig.cpp" />
+    <ClCompile Include="LinkConst.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MouseConfig.cpp" />
     <ClCompile Include="PageConfig.cpp" />
+    <ClCompile Include="ReaderConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HomePageSp.h" />
+    <ClInclude Include="MouseConst.h" />
     <ClInclude Include="PageConst.h" />
+    <ClInclude Include="ReaderConst.h" />
+    <ClInclude Include="SceneConst.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="HomePageData.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

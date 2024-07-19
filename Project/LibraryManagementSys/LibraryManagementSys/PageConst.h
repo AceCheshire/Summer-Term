@@ -1,14 +1,35 @@
 #pragma once
-#define screenWidth 80
-#define sceenHeight 40
+#include<iostream>
+#include<windows.h>
 #define COLOR_ERROR 1
 #define COORD_ERROR 2
-#define FOREGOUND_WHITE FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE
+#define FOREGROUND_WHITE FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE
+#define FOREGROUND_DEFAULT FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE
+#define GROUND_DEFAULT 7
+
+struct PageUnit {
+	COORD pos;
+	WORD color;
+	std::string text;
+};
+
+class PageUnitEx {
+public:
+	void Append(PageUnit&);
+private:
+	PageUnit thisUnit;
+	PageUnitEx* nextUnit;
+};
 
 class Page {
 public:
 	Page();
-	bool PointPaint(COORD, WORD) throw(...);
-private:
-	HANDLE handle;
+	void HideCursor();
+	bool PointPaint(PageUnit) throw();
+	bool PointPaint(COORD, WORD) throw();
+	bool PointPaint(COORD, WORD, std::string) throw();
+	bool PointPaint(short, short, WORD) throw();
+	bool PointPaint(short, short, WORD, std::string) throw();
+protected:
+	HANDLE hPageOutput;
 };
