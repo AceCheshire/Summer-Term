@@ -1,8 +1,7 @@
+#include"MouseConst.h"
+#include"PageConst.h"
 #include<iostream>
 #include<windows.h>
-#include"PageConst.h"
-#include"MouseConst.h"
-using namespace std;
 
 Mouse::Mouse() {
 	hMouseOutput = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -17,12 +16,12 @@ std::string Mouse::HoverAndClick() {
 	short x;
 	short y;
 	int counter = MOUSE_DETECT_GROUPTIMES;
-	string defaultReturn = DEFAULT_RETURN;
+	std::string defaultReturn = DEFAULT_RETURN;
 	while (counter--) {
 		GetCursorPos(&pMousePos);
 		ScreenToClient(hMouseForeground, &pMousePos);
-		x = (short)(pMousePos.x / consoleFont.dwFontSize.Y * FONT_PROPORTION);
-		y = (short)(pMousePos.y / consoleFont.dwFontSize.Y - WINDOW_TOP);
+		x = (short)(pMousePos.x / consoleFont.dwFontSize.Y * FONT_RATIO);
+		y = (short)(pMousePos.y / consoleFont.dwFontSize.Y / ROW_INTERVAL);
 		cMousePos = { x,y };
 		readStr = ReadCursorChars();
 		if (KEY_DOWN(VK_LBUTTON) && !readStr.empty())return readStr;
@@ -44,7 +43,7 @@ std::string Mouse::ReadCursorChars() {
 	COORD floatingRightPos = cMousePos;
 	floatingRightPos.X++;
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	string readString;
+	std::string readString;
 	char readChar;
 	GetConsoleScreenBufferInfo(hMouseOutput, &csbi);
 	while (((readChar = ReadChar(floatingRightPos)) != ' ') && (readChar != '\t') &&
@@ -68,5 +67,6 @@ std::string Mouse::ReadCursorChars() {
 		readString.insert(0, readChars);
 		floatingLeftPos.X--;
 	}
+	if (readString != readStr)readTimes++;
 	return readString;
 }

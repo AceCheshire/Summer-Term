@@ -1,6 +1,6 @@
+#include"LinkConst.h"
 #include<iostream>
 #include<windows.h>
-#include"LinkConst.h"
 using namespace std;
 
 Link::Link(std::string ssymbolStr, Scene* nnextScene) :symbolStr(ssymbolStr), nextScene(nnextScene) {
@@ -9,6 +9,7 @@ Link::Link(std::string ssymbolStr, Scene* nnextScene) :symbolStr(ssymbolStr), ne
 Link::Link(char* ssymbolStr, Scene* nnextScene) throw(...){
 	int errnum_heap_pointer = HEAP_POINTER_ERROR;
 	try {
+		nextScene = nnextScene;
 		if (ssymbolStr != NULL)symbolStr = ssymbolStr;
 		else throw errnum_heap_pointer;
 	}

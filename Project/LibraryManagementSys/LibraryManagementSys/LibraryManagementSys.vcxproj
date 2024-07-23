@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GeneralSceneConfig.cpp" />
+    <ClCompile Include="GeneralSceneSp.h" />
     <ClCompile Include="HomePageDisplay.cpp" />
     <ClCompile Include="LinkConfig.cpp" />
     <ClCompile Include="LinkConst.h" />
@@ -26,6 +28,7 @@
     <ClCompile Include="MouseConfig.cpp" />
     <ClCompile Include="PageConfig.cpp" />
     <ClCompile Include="ReaderConfig.cpp" />
+    <ClCompile Include="SceneConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HomePageSp.h" />

@@ -1,6 +1,6 @@
+#include"PageConst.h"
 #include<iostream>
 #include<windows.h>
-#include"PageConst.h"
 using namespace std;
 
 void PageUnitEx::Append(PageUnit& pageUnitListEnd) {
