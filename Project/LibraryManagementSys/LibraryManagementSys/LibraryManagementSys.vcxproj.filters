@@ -49,6 +49,12 @@
     <Filter Include="头文件\Specific\Scene\GeneralScene\HomePage">
       <UniqueIdentifier>{43180f58-3a78-467c-b4b0-8c7e172bf5bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Specific\Scene\GeneralScene\LoginPage">
+      <UniqueIdentifier>{c080ab70-2c2b-4692-a24b-7e32cd20c493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Scene\GeneralScene\LoginPage">
+      <UniqueIdentifier>{9632c6ef-5e4c-4560-9b99-e449b780a87a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HomePageDisplay.cpp">
@@ -81,6 +87,9 @@
     <ClCompile Include="GeneralSceneConfig.cpp">
       <Filter>源文件\Scene\GeneralScene</Filter>
     </ClCompile>
+    <ClCompile Include="LoginPageDisplay.cpp">
+      <Filter>源文件\Scene\GeneralScene\LoginPage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PageConst.h">
@@ -98,8 +107,12 @@
     <ClInclude Include="HomePageSp.h">
       <Filter>头文件\Specific\Scene\GeneralScene\HomePage</Filter>
     </ClInclude>
+    <ClInclude Include="LoginPageSp.h">
+      <Filter>头文件\Specific\Scene\GeneralScene\LoginPage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="HomePageData.txt" />
+    <Text Include="LoginPageData.txt" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,11 @@
-064 011 0008 No mind to think.
-064 013 0008 No will to break.
-064 015 0008 No voick to cry suffering.
-064 017 0008 Born of God and Void.
-064 019 0008 You shall seal the blinding light that plagues their dreams.
-064 021 0008 You are the Vessel.
-064 023 0008 You are the Hollow Knight.
+084 012 0007 Library_Management_System 
+089 017 0007 Login_as_admin
+089 019 0007 Login_as_guest
+094 021 0007 Help
+092 023 0007 Setting
+094 025 0007 Exit
+105 017 0800  A 
+105 019 0800  G 
+100 021 0800  H 
+100 023 0800  S 
+100 025 0800  E 

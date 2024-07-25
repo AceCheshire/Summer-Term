@@ -16,7 +16,7 @@ void GeneralScene::WaitInput(bool isKeyboardInputOn, bool isMouseInputOn) throw(
 		int inputKey = _getch();
 		if (keyList[inputKey] != NULL) keyList[inputKey]();
 	}
-	if (!(mouseMsg = (*attachedMouse).HoverAndClick()).empty() && isMouseInputOn) {
+	if (!((mouseMsg = (*attachedMouse).HoverAndClick()).empty()) && isMouseInputOn) {
 		FindLink(mouseMsg);
 	}
 }
@@ -27,6 +27,12 @@ void GeneralScene::FindLink(std::string msg) {
 			buttonList[i]->SwitchScene(msg);
 		}
 	}
+}
+
+void GeneralScene::AppendLink(Link* newLink) {
+	int i = 0;
+	while (buttonList[i] != NULL)i++;
+	buttonList[i] = newLink;
 }
 
 Link* GeneralScene::buttonList[MAX_LINK_NUM] = {};

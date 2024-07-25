@@ -24,6 +24,7 @@
     <ClCompile Include="HomePageDisplay.cpp" />
     <ClCompile Include="LinkConfig.cpp" />
     <ClCompile Include="LinkConst.h" />
+    <ClCompile Include="LoginPageDisplay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MouseConfig.cpp" />
     <ClCompile Include="PageConfig.cpp" />
@@ -32,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HomePageSp.h" />
+    <ClInclude Include="LoginPageSp.h" />
     <ClInclude Include="MouseConst.h" />
     <ClInclude Include="PageConst.h" />
     <ClInclude Include="ReaderConst.h" />
@@ -39,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="HomePageData.txt" />
+    <Text Include="LoginPageData.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

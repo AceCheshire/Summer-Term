@@ -12,7 +12,7 @@ bool HomePage::PrepareScene() {
 	try {
 		while (true) {
 			LayoutText();
-			WaitInput(true, false);
+			WaitInput(true, true);
 		}
 	}
 	catch (...) {
