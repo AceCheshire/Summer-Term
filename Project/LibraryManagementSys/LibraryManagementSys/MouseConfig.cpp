@@ -1,18 +1,18 @@
-#include"MouseConst.h"
-#include"PageConst.h"
+#include"MouseBase.h"
+#include"PageBase.h"
 #include<iostream>
 #include<windows.h>
 
 Mouse::Mouse() {
 	hMouseOutput = GetStdHandle(STD_OUTPUT_HANDLE);
 	hMouseForeground = GetForegroundWindow();
-	GetCurrentConsoleFont(hMouseOutput, FALSE, &consoleFont);
 	pMousePos.x = pMousePos.y = 0;
 	cMousePos.X = cMousePos.Y = 0;
-	MoveWindow(hMouseForeground, 0, 0, 2560, 1440, TRUE);
+	GetCurrentConsoleFont(hMouseOutput, FALSE, &consoleFont);
+	MoveWindow(hMouseForeground, 0, 0, CLASSIC_WIDTH, CLASSIC_HEIGHT, TRUE);
 }
 
-std::string Mouse::HoverAndClick() {
+std::string Mouse::HoverAndClick(PageUnitEx* sourceText) {
 	short x;
 	short y;
 	int counter = MOUSE_DETECT_GROUPTIMES;
@@ -23,7 +23,7 @@ std::string Mouse::HoverAndClick() {
 		x = (short)(pMousePos.x / consoleFont.dwFontSize.Y * FONT_RATIO);
 		y = (short)(pMousePos.y / consoleFont.dwFontSize.Y / ROW_INTERVAL);
 		cMousePos = { x,y };
-		readStr = ReadCursorChars();
+		readStr = ReadCursorChars(sourceText);
 		if (KEY_DOWN(VK_LBUTTON) && !readStr.empty())return readStr;
 		Sleep(MOUSE_DETECT_INTERVAL);
 	}
@@ -38,7 +38,7 @@ char Mouse::ReadChar(COORD cPos) {
 	else return ' ';
 }
 
-std::string Mouse::ReadCursorChars() {
+std::string Mouse::ReadCursorChars(PageUnitEx* sourceText) {
 	COORD floatingLeftPos = cMousePos;
 	COORD floatingRightPos = cMousePos;
 	floatingRightPos.X++;
@@ -67,6 +67,13 @@ std::string Mouse::ReadCursorChars() {
 		readString.insert(0, readChars);
 		floatingLeftPos.X--;
 	}
-	if (readString != readStr)readTimes++;
+	if (readString != readStr)PopLastStr(sourceText);
 	return readString;
+}
+
+void Mouse::PopLastStr(PageUnitEx* sourceText) {
+	Page tmpPage;
+	PageUnitEx* tmpPointer = NULL;
+	if (!readStr.empty())tmpPointer = sourceText->FindByText(readStr);
+	if (tmpPointer != NULL) tmpPage.PointPaint(tmpPointer->GetPageUnit());
 }

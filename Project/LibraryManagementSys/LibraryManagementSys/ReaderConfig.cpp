@@ -1,5 +1,5 @@
-#include"PageConst.h"
-#include"ReaderConst.h"
+#include"PageBase.h"
+#include"ReaderBase.h"
 #include<fstream>
 #include<string>
 #include<windows.h>

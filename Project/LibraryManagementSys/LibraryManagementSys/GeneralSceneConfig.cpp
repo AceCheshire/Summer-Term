@@ -1,7 +1,5 @@
+#include"ErrorBase.h"
 #include"GeneralSceneSp.h"
-#include"MouseConst.h"
-#include"PageConst.h"
-#include"SceneConst.h"
 #include<conio.h>
 #include<iostream>
 #pragma warning(disable:4996)
@@ -11,12 +9,12 @@ GeneralScene::GeneralScene(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx 
 }
 
 void GeneralScene::WaitInput(bool isKeyboardInputOn, bool isMouseInputOn) throw() {
-	if (!isKeyboardInputOn && !isMouseInputOn)throw;
+	if (!isKeyboardInputOn && !isMouseInputOn)throw ENDLESS_LOOP_ERROR;
 	if (kbhit() != 0 && isKeyboardInputOn) {
 		int inputKey = _getch();
 		if (keyList[inputKey] != NULL) keyList[inputKey]();
 	}
-	if (!((mouseMsg = (*attachedMouse).HoverAndClick()).empty()) && isMouseInputOn) {
+	if (!((mouseMsg = (*attachedMouse).HoverAndClick(&pageUnitListHead)).empty()) && isMouseInputOn) {
 		FindLink(mouseMsg);
 	}
 }
@@ -36,3 +34,4 @@ void GeneralScene::AppendLink(Link* newLink) {
 }
 
 Link* GeneralScene::buttonList[MAX_LINK_NUM] = {};
+void (*GeneralScene::keyList[MAX_KEY_NUM])() = {};

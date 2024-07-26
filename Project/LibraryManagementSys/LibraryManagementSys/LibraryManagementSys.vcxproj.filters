@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="头文件\Const">
-      <UniqueIdentifier>{6b3c8a1d-e28d-4760-9ea5-0937c87db1b9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Page">
       <UniqueIdentifier>{31b1a843-7254-4024-88fb-a179a606cb08}</UniqueIdentifier>
     </Filter>
@@ -61,6 +58,9 @@
     <Filter Include="头文件\Specific\Scene\GeneralScene\HelpPage">
       <UniqueIdentifier>{8fd1c91e-0881-4d70-a963-ee1f79b1f6c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Base">
+      <UniqueIdentifier>{6b3c8a1d-e28d-4760-9ea5-0937c87db1b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HomePageDisplay.cpp">
@@ -75,8 +75,8 @@
     <ClCompile Include="MouseConfig.cpp">
       <Filter>源文件\Mouse</Filter>
     </ClCompile>
-    <ClCompile Include="LinkConst.h">
-      <Filter>头文件\Const</Filter>
+    <ClCompile Include="LinkBase.h">
+      <Filter>头文件\Base</Filter>
     </ClCompile>
     <ClCompile Include="LinkConfig.cpp">
       <Filter>源文件\Link</Filter>
@@ -101,17 +101,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PageConst.h">
-      <Filter>头文件\Const</Filter>
+    <ClInclude Include="PageBase.h">
+      <Filter>头文件\Base</Filter>
     </ClInclude>
-    <ClInclude Include="MouseConst.h">
-      <Filter>头文件\Const</Filter>
+    <ClInclude Include="MouseBase.h">
+      <Filter>头文件\Base</Filter>
     </ClInclude>
-    <ClInclude Include="SceneConst.h">
-      <Filter>头文件\Const</Filter>
+    <ClInclude Include="SceneBase.h">
+      <Filter>头文件\Base</Filter>
     </ClInclude>
-    <ClInclude Include="ReaderConst.h">
-      <Filter>头文件\Const</Filter>
+    <ClInclude Include="ReaderBase.h">
+      <Filter>头文件\Base</Filter>
     </ClInclude>
     <ClInclude Include="HomePageSp.h">
       <Filter>头文件\Specific\Scene\GeneralScene\HomePage</Filter>
@@ -121,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="HelpPageSp.h">
       <Filter>头文件\Specific\Scene\GeneralScene\HelpPage</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorBase.h">
+      <Filter>头文件\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

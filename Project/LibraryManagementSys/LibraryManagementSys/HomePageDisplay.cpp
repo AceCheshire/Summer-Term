@@ -1,6 +1,6 @@
 #include"HomePageSp.h"
-#include"SceneConst.h"
 #include<iostream>
+#include<windows.h>
 using namespace std;
 
 HomePage::HomePage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageUnitListHead)
@@ -8,14 +8,13 @@ HomePage::HomePage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageUni
 }
 
 bool HomePage::PrepareScene() {
-	int errnum = ENDLESS_LOOP_ERROR;
 	try {
 		while (true) {
 			LayoutText();
 			WaitInput(true, true);
 		}
 	}
-	catch (...) {
+	catch (int errnum) {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
 		cout << endl;
 		cerr << "ERR: class HomePage | function PrepareScene | errnum " << errnum << endl;
@@ -23,4 +22,28 @@ bool HomePage::PrepareScene() {
 		return false;
 	}
 	return true;
+}
+
+void HomePage::KeyBinding() {
+
+}
+
+void HomePage::ActionKeyA() {
+
+}
+
+void HomePage::ActionKeyG() {
+
+}
+
+void HomePage::ActionKeyH() {
+
+}
+
+void HomePage::ActionKeyS() {
+
+}
+
+void HomePage::ActionKeyE() {
+
 }

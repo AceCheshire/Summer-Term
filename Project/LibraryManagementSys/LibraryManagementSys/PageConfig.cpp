@@ -1,4 +1,5 @@
-#include"PageConst.h"
+#include"ErrorBase.h"
+#include"PageBase.h"
 #include<iostream>
 #include<windows.h>
 using namespace std;
@@ -10,6 +11,12 @@ void PageUnitEx::Append(PageUnit& pageUnitListEnd) {
 		nextUnit->nextUnit = NULL;
 	}
 	else nextUnit->Append(pageUnitListEnd);
+}
+
+PageUnitEx* PageUnitEx::FindByText(std::string text) {
+	if (thisUnit.text == text)return this;
+	else if (nextUnit != NULL)return nextUnit->FindByText(text);
+	else return NULL;
 }
 
 void PageUnitEx::DeleteAll() {

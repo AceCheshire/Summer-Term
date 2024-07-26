@@ -1,11 +1,7 @@
 #include"HomePageSp.h"
 #include"HelpPageSp.h"
-#include"LinkConst.h"
 #include"LoginPageSp.h"
-#include"MouseConst.h"
-#include"PageConst.h"
-#include"ReaderConst.h"
-#include"SceneConst.h"
+#include"ReaderBase.h"
 #include<iostream>
 #include<windows.h>
 using namespace std;

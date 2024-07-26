@@ -1,4 +1,5 @@
-#include"LinkConst.h"
+#include"ErrorBase.h"
+#include"LinkBase.h"
 #include<iostream>
 #include<windows.h>
 using namespace std;

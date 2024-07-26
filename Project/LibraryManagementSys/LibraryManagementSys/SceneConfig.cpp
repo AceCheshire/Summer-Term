@@ -1,7 +1,5 @@
-#include"LinkConst.h"
-#include"PageConst.h"
-#include"SceneConst.h"
-#include<conio.h>
+#include"ErrorBase.h"
+#include"SceneBase.h"
 #include<iostream>
 
 Scene::Scene(Mouse* aattachedMouse,Scene* pprevScene,PageUnitEx ppageUnitListHead) 
@@ -11,23 +9,9 @@ Scene::Scene(Mouse* aattachedMouse,Scene* pprevScene,PageUnitEx ppageUnitListHea
 void Scene::LayoutText() throw() {
 	Page tmpPage;
 	PageUnitEx* tmpPageUnitPointer = &pageUnitListHead;
-	try {
-		if (attachedMouse->GetTimes() >= 2) {
-			system("cls");
-			attachedMouse->ResetTimes();
-		}
-	}
-	catch (...) {
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
-		std::cout << std::endl;
-		std::cerr << "ERR: class Page | function CleanSceen | errnum " << CLS_ERROR << std::endl;
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_WHITE);
-	}
-	if (tmpPageUnitPointer == NULL)throw;
+	if (tmpPageUnitPointer == NULL)throw HEAP_POINTER_ERROR;
 	while (tmpPageUnitPointer != NULL) {
 		tmpPage.PointPaint(tmpPageUnitPointer->GetPageUnit());
 		tmpPageUnitPointer = tmpPageUnitPointer->GetNext();
 	}
 }
-
-void (*Scene::keyList[MAX_KEY_NUM])() = {};

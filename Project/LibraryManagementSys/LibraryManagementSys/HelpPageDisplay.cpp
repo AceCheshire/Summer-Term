@@ -1,6 +1,6 @@
 #include"HelpPageSp.h"
-#include"SceneConst.h"
 #include<iostream>
+#include<windows.h>
 using namespace std;
 
 HelpPage::HelpPage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageUnitListHead)
@@ -8,14 +8,13 @@ HelpPage::HelpPage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageUni
 }
 
 bool HelpPage::PrepareScene() {
-	int errnum = ENDLESS_LOOP_ERROR;
 	try {
 		while (true) {
 			LayoutText();
 			WaitInput(true, true);
 		}
 	}
-	catch (...) {
+	catch (int errnum) {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
 		cout << endl;
 		cerr << "ERR: class HelpPage | function PrepareScene | errnum " << errnum << endl;

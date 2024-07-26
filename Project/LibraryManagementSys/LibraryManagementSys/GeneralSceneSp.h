@@ -1,6 +1,6 @@
 #pragma once
-#include"LinkConst.h"
-#include"SceneConst.h"
+#include"LinkBase.h"
+#include"SceneBase.h"
 
 class GeneralScene :public Scene {
 public:
@@ -9,5 +9,7 @@ public:
 	void FindLink(std::string);
 	static void AppendLink(Link*);
 protected:
+	virtual void KeyBinding() = 0;
+	static void(*keyList[MAX_KEY_NUM])();
 	static Link* buttonList[MAX_LINK_NUM];
 };

@@ -1,6 +1,6 @@
 #include"LoginPageSp.h"
-#include"SceneConst.h"
 #include<iostream>
+#include<windows.h>
 using namespace std;
 
 LoginPage::LoginPage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageUnitListHead)
@@ -8,14 +8,13 @@ LoginPage::LoginPage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageU
 }
 
 bool LoginPage::PrepareScene() {
-	int errnum = ENDLESS_LOOP_ERROR;
 	try {
 		while (true) {
 			LayoutText();
 			WaitInput(true, false);
 		}
 	}
-	catch (...) {
+	catch (int errnum) {
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
 		cout << endl;
 		cerr << "ERR: class LoginPage | function PrepareScene | errnum " << errnum << endl;

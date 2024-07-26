@@ -24,7 +24,7 @@
     <ClCompile Include="HelpPageDisplay.cpp" />
     <ClCompile Include="HomePageDisplay.cpp" />
     <ClCompile Include="LinkConfig.cpp" />
-    <ClCompile Include="LinkConst.h" />
+    <ClCompile Include="LinkBase.h" />
     <ClCompile Include="LoginPageDisplay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MouseConfig.cpp" />
@@ -33,13 +33,14 @@
     <ClCompile Include="SceneConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ErrorBase.h" />
     <ClInclude Include="HelpPageSp.h" />
     <ClInclude Include="HomePageSp.h" />
     <ClInclude Include="LoginPageSp.h" />
-    <ClInclude Include="MouseConst.h" />
-    <ClInclude Include="PageConst.h" />
-    <ClInclude Include="ReaderConst.h" />
-    <ClInclude Include="SceneConst.h" />
+    <ClInclude Include="MouseBase.h" />
+    <ClInclude Include="PageBase.h" />
+    <ClInclude Include="ReaderBase.h" />
+    <ClInclude Include="SceneBase.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="HelpPageData.txt" />
