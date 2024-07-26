@@ -19,6 +19,7 @@ public:
 	void Append(PageUnit&);
 	PageUnit& GetPageUnit() { return thisUnit; }
 	PageUnitEx* GetNext() { return nextUnit; }
+	void DeleteAll();
 private:
 	PageUnit thisUnit;
 	PageUnitEx* nextUnit;

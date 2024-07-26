@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="GeneralSceneConfig.cpp" />
     <ClCompile Include="GeneralSceneSp.h" />
+    <ClCompile Include="HelpPageDisplay.cpp" />
     <ClCompile Include="HomePageDisplay.cpp" />
     <ClCompile Include="LinkConfig.cpp" />
     <ClCompile Include="LinkConst.h" />
@@ -32,6 +33,7 @@
     <ClCompile Include="SceneConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HelpPageSp.h" />
     <ClInclude Include="HomePageSp.h" />
     <ClInclude Include="LoginPageSp.h" />
     <ClInclude Include="MouseConst.h" />
@@ -40,6 +42,7 @@
     <ClInclude Include="SceneConst.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="HelpPageData.txt" />
     <Text Include="HomePageData.txt" />
     <Text Include="LoginPageData.txt" />
   </ItemGroup>

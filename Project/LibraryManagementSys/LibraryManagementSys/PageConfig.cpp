@@ -12,6 +12,11 @@ void PageUnitEx::Append(PageUnit& pageUnitListEnd) {
 	else nextUnit->Append(pageUnitListEnd);
 }
 
+void PageUnitEx::DeleteAll() {
+	if (nextUnit != NULL)nextUnit->DeleteAll();
+	delete this;
+}
+
 Page::Page() {
 	hPageOutput = GetStdHandle(STD_OUTPUT_HANDLE);
 }
