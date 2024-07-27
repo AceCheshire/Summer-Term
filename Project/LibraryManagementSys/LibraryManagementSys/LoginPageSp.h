@@ -6,8 +6,6 @@
 
 class LoginPage :public GeneralScene {
 public:
-	LoginPage(Mouse*, Scene*, PageUnitEx);
+	LoginPage(Mouse*, Scene*, PageUnitEx*);
 	bool PrepareScene();
-protected:
-	void KeyBinding() {};
 };

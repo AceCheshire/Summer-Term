@@ -3,7 +3,7 @@
 #include<windows.h>
 using namespace std;
 
-LoginPage::LoginPage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageUnitListHead)
+LoginPage::LoginPage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx* ppageUnitListHead)
 	:GeneralScene(aattachedMouse, pprevScene, ppageUnitListHead) {
 }
 

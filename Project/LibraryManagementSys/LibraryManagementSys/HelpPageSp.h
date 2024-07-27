@@ -6,8 +6,6 @@
 
 class HelpPage :public GeneralScene {
 public:
-	HelpPage(Mouse*, Scene*, PageUnitEx);
+	HelpPage(Mouse*, Scene*, PageUnitEx*);
 	bool PrepareScene();
-protected:
-	void KeyBinding() {};
 };

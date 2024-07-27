@@ -35,12 +35,19 @@ void Page::HideCursor() {
 	SetConsoleCursorInfo(hPageOutput, &consoleCursor);
 }
 
+void Page::ReturnDefault() {
+	int errnum_color = COLOR_ERROR;
+	if (!SetConsoleTextAttribute(hPageOutput, GROUND_DEFAULT)) throw errnum_color;
+}
+
 bool Page::PointPaint(PageUnit requestUnit) throw() {
 	int errnum_color = COLOR_ERROR;
 	int errnum_coord = COORD_ERROR;
 	try {
 		if (!SetConsoleTextAttribute(hPageOutput, requestUnit.color)) throw errnum_color;
 		if (!SetConsoleCursorPosition(hPageOutput, requestUnit.pos)) throw errnum_coord;
+		if (!requestUnit.text.empty())printf("%s", requestUnit.text.c_str());
+		ReturnDefault();
 	}
 	catch (int errnum) {
 		SetConsoleTextAttribute(hPageOutput, FOREGROUND_RED);
@@ -48,7 +55,6 @@ bool Page::PointPaint(PageUnit requestUnit) throw() {
 		cerr << "ERR: function PointPaint | errnum " << errnum << endl;
 		SetConsoleTextAttribute(hPageOutput, FOREGROUND_WHITE);
 	}
-	if (!requestUnit.text.empty())printf("%s", requestUnit.text.c_str());
 	return true;
 }
 
@@ -74,6 +80,8 @@ bool Page::PointPaint(COORD requestPos, WORD requestColor, string requestString)
 	try {
 		if (!SetConsoleTextAttribute(hPageOutput, requestColor)) throw errnum_color;
 		if (!SetConsoleCursorPosition(hPageOutput, requestPos)) throw errnum_coord;
+		if (!requestString.empty())printf("%s", requestString.c_str());
+		ReturnDefault();
 	}
 	catch (int errnum) {
 		SetConsoleTextAttribute(hPageOutput, FOREGROUND_RED);
@@ -81,7 +89,6 @@ bool Page::PointPaint(COORD requestPos, WORD requestColor, string requestString)
 		cerr << "ERR: function PointPaint | errnum " << errnum << endl;
 		SetConsoleTextAttribute(hPageOutput, FOREGROUND_WHITE);
 	}
-	if (!requestString.empty())printf("%s", requestString.c_str());
 	return true;
 }
 
@@ -109,6 +116,8 @@ bool Page::PointPaint(short i, short j, WORD requestColor, string requestString)
 	try {
 		if (!SetConsoleTextAttribute(hPageOutput, requestColor)) throw errnum_color;
 		if (!SetConsoleCursorPosition(hPageOutput, requestPos)) throw errnum_coord;
+		if (!requestString.empty())printf("%s", requestString.c_str());
+		ReturnDefault();
 	}
 	catch (int errnum) {
 		SetConsoleTextAttribute(hPageOutput, FOREGROUND_RED);
@@ -116,6 +125,5 @@ bool Page::PointPaint(short i, short j, WORD requestColor, string requestString)
 		cerr << "ERR: function PointPaint | errnum " << errnum << endl;
 		SetConsoleTextAttribute(hPageOutput, FOREGROUND_WHITE);
 	}
-	if (!requestString.empty())printf("%s", requestString.c_str());
 	return true;
 }

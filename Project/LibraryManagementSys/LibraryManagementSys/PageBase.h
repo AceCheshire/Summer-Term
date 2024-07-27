@@ -27,6 +27,7 @@ class Page {
 public:
 	Page();
 	void HideCursor();
+	void ReturnDefault() throw();
 	bool PointPaint(PageUnit) throw();
 	bool PointPaint(COORD, WORD) throw();
 	bool PointPaint(COORD, WORD, std::string) throw();

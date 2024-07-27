@@ -3,7 +3,7 @@
 #include<windows.h>
 using namespace std;
 
-HelpPage::HelpPage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageUnitListHead)
+HelpPage::HelpPage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx* ppageUnitListHead)
 	:GeneralScene(aattachedMouse, pprevScene, ppageUnitListHead) {
 }
 

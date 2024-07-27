@@ -93,11 +93,11 @@
     <ClCompile Include="GeneralSceneConfig.cpp">
       <Filter>源文件\Scene\GeneralScene</Filter>
     </ClCompile>
-    <ClCompile Include="LoginPageDisplay.cpp">
-      <Filter>源文件\Scene\GeneralScene\LoginPage</Filter>
-    </ClCompile>
     <ClCompile Include="HelpPageDisplay.cpp">
       <Filter>源文件\Scene\GeneralScene\HelpPage</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPageDisplay.cpp">
+      <Filter>源文件\Scene\GeneralScene\LoginPage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

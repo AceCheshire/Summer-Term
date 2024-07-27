@@ -6,12 +6,11 @@
 
 class Scene {
 public:
-	Scene(Mouse*, Scene*, PageUnitEx);
+	Scene(Mouse*, Scene*, PageUnitEx*);
 	virtual bool PrepareScene() = 0;
 protected:
-	void LayoutText() throw();
 	Mouse* attachedMouse;
 	std::string mouseMsg;
 	Scene* prevScene;
-	PageUnitEx pageUnitListHead;
+	PageUnitEx* pageUnitListHead;
 };

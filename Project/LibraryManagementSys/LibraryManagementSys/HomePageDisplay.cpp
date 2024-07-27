@@ -3,7 +3,7 @@
 #include<windows.h>
 using namespace std;
 
-HomePage::HomePage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx ppageUnitListHead)
+HomePage::HomePage(Mouse* aattachedMouse, Scene* pprevScene, PageUnitEx* ppageUnitListHead)
 	:GeneralScene(aattachedMouse, pprevScene, ppageUnitListHead) {
 }
 
@@ -22,28 +22,4 @@ bool HomePage::PrepareScene() {
 		return false;
 	}
 	return true;
-}
-
-void HomePage::KeyBinding() {
-
-}
-
-void HomePage::ActionKeyA() {
-
-}
-
-void HomePage::ActionKeyG() {
-
-}
-
-void HomePage::ActionKeyH() {
-
-}
-
-void HomePage::ActionKeyS() {
-
-}
-
-void HomePage::ActionKeyE() {
-
 }

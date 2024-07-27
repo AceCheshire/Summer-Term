@@ -16,11 +16,11 @@ int main() {
 
 	PageUnitEx homePageText;
 	generalReader.ReadForPointPaint(&homePageText, HOME_PAGE_DATA);
-	HomePage homePage(&generalMouse, NULL, homePageText);
+	HomePage homePage(&generalMouse, NULL, &homePageText);
 
 	PageUnitEx loginPageText;
 	generalReader.ReadForPointPaint(&loginPageText, LOGIN_PAGE_DATA);
-	LoginPage loginPage(&generalMouse, &homePage, loginPageText);
+	LoginPage loginPage(&generalMouse, &homePage, &loginPageText);
 	Link HomePage_LoginAdPage("Login_as_admin", &loginPage);
 	Link HomePage_LoginGuPage("Login_as_guest", &loginPage);
 	GeneralScene::AppendLink(&HomePage_LoginAdPage);
@@ -28,7 +28,7 @@ int main() {
 
 	PageUnitEx helpPageText;
 	generalReader.ReadForPointPaint(&helpPageText, HELP_PAGE_DATA);
-	HelpPage helpPage(&generalMouse, &homePage, helpPageText);
+	HelpPage helpPage(&generalMouse, &homePage, &helpPageText);
 	Link HomePage_HelpPage("Help", &helpPage);
 	GeneralScene::AppendLink(&HomePage_HelpPage);
 

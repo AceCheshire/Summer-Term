@@ -3,8 +3,8 @@
 #include<windows.h>
 #include<iostream>
 #define KEY_DOWN(VK_NONAME) ((GetAsyncKeyState(VK_NONAME) & 0x8000) ? 1:0)
-#define MOUSE_DETECT_INTERVAL 30
-#define MOUSE_DETECT_GROUPTIMES 10
+#define MOUSE_DETECT_INTERVAL 10
+#define MOUSE_DETECT_GROUPTIMES 30
 #define DEFAULT_RETURN "_NULL_"
 #define FONT_RATIO 16 / 9.3
 #define ROW_INTERVAL 1.2
