@@ -4,8 +4,8 @@
 #include"scene_base.h"
 constexpr char kLoginPageDataSource[20] = "login_page_data.txt";
 
-class LoginPage :public GeneralScene {
-public:
-	LoginPage(Mouse*, Scene*, PageUnitEx*);
-	bool prepareScene();
+class LoginPage : public GeneralScene {
+ public:
+  LoginPage(Mouse*, Scene*, PageUnitEx*);
+  bool prepareScene();
 };

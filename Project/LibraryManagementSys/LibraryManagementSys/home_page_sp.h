@@ -4,8 +4,8 @@
 #include"scene_base.h"
 constexpr char kHomePageDataSource[19] = "home_page_data.txt";
 
-class HomePage :public GeneralScene {
-public:
-	HomePage(Mouse*, Scene*, PageUnitEx*);
-	bool prepareScene();
+class HomePage : public GeneralScene {
+ public:
+  HomePage(Mouse*, Scene*, PageUnitEx*);
+  bool prepareScene();
 };

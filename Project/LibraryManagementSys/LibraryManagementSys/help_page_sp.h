@@ -4,8 +4,8 @@
 #include"scene_base.h"
 constexpr char kHelpPageDataSource[19] = "help_page_data.txt";
 
-class HelpPage :public GeneralScene {
-public:
-	HelpPage(Mouse*, Scene*, PageUnitEx*);
-	bool prepareScene();
+class HelpPage : public GeneralScene {
+ public:
+  HelpPage(Mouse*, Scene*, PageUnitEx*);
+  bool prepareScene();
 };

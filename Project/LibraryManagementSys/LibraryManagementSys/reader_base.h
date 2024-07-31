@@ -8,6 +8,6 @@ constexpr int kColorBase = 8;
 constexpr int kStrBase = 13;
 
 class Reader {
-public:
-	bool readForPointPaint(PageUnitEx*, std::string);
+ public:
+  bool readForPointPaint(PageUnitEx*, std::string);
 };
