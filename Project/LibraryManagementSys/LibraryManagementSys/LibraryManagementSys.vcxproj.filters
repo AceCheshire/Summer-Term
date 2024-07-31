@@ -63,77 +63,77 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HomePageDisplay.cpp">
+    <ClCompile Include="home_page_display.cpp">
       <Filter>源文件\Scene\GeneralScene\HomePage</Filter>
     </ClCompile>
-    <ClCompile Include="PageConfig.cpp">
+    <ClCompile Include="page_config.cpp">
       <Filter>源文件\Page</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MouseConfig.cpp">
+    <ClCompile Include="mouse_config.cpp">
       <Filter>源文件\Mouse</Filter>
     </ClCompile>
-    <ClCompile Include="LinkBase.h">
+    <ClCompile Include="link_base.h">
       <Filter>头文件\Base</Filter>
     </ClCompile>
-    <ClCompile Include="LinkConfig.cpp">
+    <ClCompile Include="link_config.cpp">
       <Filter>源文件\Link</Filter>
     </ClCompile>
-    <ClCompile Include="ReaderConfig.cpp">
+    <ClCompile Include="reader_config.cpp">
       <Filter>源文件\Reader</Filter>
     </ClCompile>
-    <ClCompile Include="SceneConfig.cpp">
+    <ClCompile Include="scene_config.cpp">
       <Filter>源文件\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="GeneralSceneSp.h">
+    <ClCompile Include="general_scene_sp.h">
       <Filter>头文件\Specific\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="GeneralSceneConfig.cpp">
+    <ClCompile Include="general_scene_config.cpp">
       <Filter>源文件\Scene\GeneralScene</Filter>
     </ClCompile>
-    <ClCompile Include="HelpPageDisplay.cpp">
+    <ClCompile Include="help_page_display.cpp">
       <Filter>源文件\Scene\GeneralScene\HelpPage</Filter>
     </ClCompile>
-    <ClCompile Include="LoginPageDisplay.cpp">
+    <ClCompile Include="login_page_display.cpp">
       <Filter>源文件\Scene\GeneralScene\LoginPage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PageBase.h">
+    <ClInclude Include="page_base.h">
       <Filter>头文件\Base</Filter>
     </ClInclude>
-    <ClInclude Include="MouseBase.h">
+    <ClInclude Include="mouse_base.h">
       <Filter>头文件\Base</Filter>
     </ClInclude>
-    <ClInclude Include="SceneBase.h">
+    <ClInclude Include="scene_base.h">
       <Filter>头文件\Base</Filter>
     </ClInclude>
-    <ClInclude Include="ReaderBase.h">
+    <ClInclude Include="reader_base.h">
       <Filter>头文件\Base</Filter>
     </ClInclude>
-    <ClInclude Include="HomePageSp.h">
+    <ClInclude Include="home_page_sp.h">
       <Filter>头文件\Specific\Scene\GeneralScene\HomePage</Filter>
     </ClInclude>
-    <ClInclude Include="LoginPageSp.h">
+    <ClInclude Include="login_page_sp.h">
       <Filter>头文件\Specific\Scene\GeneralScene\LoginPage</Filter>
     </ClInclude>
-    <ClInclude Include="HelpPageSp.h">
+    <ClInclude Include="help_page_sp.h">
       <Filter>头文件\Specific\Scene\GeneralScene\HelpPage</Filter>
     </ClInclude>
-    <ClInclude Include="ErrorBase.h">
+    <ClInclude Include="error_base.h">
       <Filter>头文件\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="HelpPageData.txt">
+    <Text Include="help_page_data.txt">
       <Filter>资源文件</Filter>
     </Text>
-    <Text Include="HomePageData.txt">
+    <Text Include="home_page_data.txt">
       <Filter>资源文件</Filter>
     </Text>
-    <Text Include="LoginPageData.txt">
+    <Text Include="login_page_data.txt">
       <Filter>资源文件</Filter>
     </Text>
   </ItemGroup>

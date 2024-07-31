@@ -19,33 +19,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GeneralSceneConfig.cpp" />
-    <ClCompile Include="GeneralSceneSp.h" />
-    <ClCompile Include="HelpPageDisplay.cpp" />
-    <ClCompile Include="HomePageDisplay.cpp" />
-    <ClCompile Include="LinkConfig.cpp" />
-    <ClCompile Include="LinkBase.h" />
-    <ClCompile Include="LoginPageDisplay.cpp" />
+    <ClCompile Include="general_scene_config.cpp" />
+    <ClCompile Include="general_scene_sp.h" />
+    <ClCompile Include="help_page_display.cpp" />
+    <ClCompile Include="home_page_display.cpp" />
+    <ClCompile Include="link_config.cpp" />
+    <ClCompile Include="link_base.h" />
+    <ClCompile Include="login_page_display.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MouseConfig.cpp" />
-    <ClCompile Include="PageConfig.cpp" />
-    <ClCompile Include="ReaderConfig.cpp" />
-    <ClCompile Include="SceneConfig.cpp" />
+    <ClCompile Include="mouse_config.cpp" />
+    <ClCompile Include="page_config.cpp" />
+    <ClCompile Include="reader_config.cpp" />
+    <ClCompile Include="scene_config.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ErrorBase.h" />
-    <ClInclude Include="HelpPageSp.h" />
-    <ClInclude Include="HomePageSp.h" />
-    <ClInclude Include="LoginPageSp.h" />
-    <ClInclude Include="MouseBase.h" />
-    <ClInclude Include="PageBase.h" />
-    <ClInclude Include="ReaderBase.h" />
-    <ClInclude Include="SceneBase.h" />
+    <ClInclude Include="error_base.h" />
+    <ClInclude Include="help_page_sp.h" />
+    <ClInclude Include="home_page_sp.h" />
+    <ClInclude Include="login_page_sp.h" />
+    <ClInclude Include="mouse_base.h" />
+    <ClInclude Include="page_base.h" />
+    <ClInclude Include="reader_base.h" />
+    <ClInclude Include="scene_base.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="HelpPageData.txt" />
-    <Text Include="HomePageData.txt" />
-    <Text Include="LoginPageData.txt" />
+    <Text Include="help_page_data.txt" />
+    <Text Include="home_page_data.txt" />
+    <Text Include="login_page_data.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
