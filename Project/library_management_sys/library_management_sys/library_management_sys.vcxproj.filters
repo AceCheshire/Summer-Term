@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\base">
+      <UniqueIdentifier>{acaf7539-37b8-4609-9853-f75a104adcc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\specific">
+      <UniqueIdentifier>{e40e2c8b-ef35-4094-9544-555c360bb06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\specific\scene">
+      <UniqueIdentifier>{42c60722-e061-40d9-8821-0590967a9724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\specific\scene\general_scene">
+      <UniqueIdentifier>{7ef891a2-a112-4e25-8abf-15c7e847da01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\specific\scene\general_scene\help_page">
+      <UniqueIdentifier>{3cc9f7aa-df47-48b5-bb1b-886b0604f36a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\specific\scene\general_scene\home_page">
+      <UniqueIdentifier>{7a4b6b9b-ab53-468e-a88d-ef4b4b908286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\specific\scene\general_scene\login_page">
+      <UniqueIdentifier>{3c41425f-3939-415d-b68f-f3ffaf8945f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\link">
+      <UniqueIdentifier>{cea58b42-715d-4a32-a92c-985dee7baa35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\scene">
+      <UniqueIdentifier>{e5deaafd-f2fe-40a5-9aaf-5fca8ee7e1c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\reader">
+      <UniqueIdentifier>{305d204d-0784-4ac5-9c45-2973af80edee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\mouse">
+      <UniqueIdentifier>{f25456d5-72e3-494a-aa3a-2ee7a8fd76ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\page">
+      <UniqueIdentifier>{54a718d5-12e6-42bc-b709-89979aba5793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\scene\general_scene">
+      <UniqueIdentifier>{48d17e41-48bc-4681-b6de-bc03d9af77a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\scene\general_scene\help_page">
+      <UniqueIdentifier>{677970c1-f48b-441d-8e34-6b1279345a19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\scene\general_scene\home_page">
+      <UniqueIdentifier>{82d77fbc-67a3-466c-a3c1-634711c89aca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\scene\general_scene\login_page">
+      <UniqueIdentifier>{abe3e8cb-3cf1-452a-89e1-0bdb7ca63d69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\scheduler">
+      <UniqueIdentifier>{b2cde7e1-e64a-46d6-9713-6ac1f006bca3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\base\error_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\link_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\mouse_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\page_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\reader_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\scene_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\specific\scene\general_scene_sp.h">
+      <Filter>头文件\specific\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\specific\scene\general_scene\help_page\help_page_sp.h">
+      <Filter>头文件\specific\scene\general_scene\help_page</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\specific\scene\general_scene\home_page\home_page_sp.h">
+      <Filter>头文件\specific\scene\general_scene\home_page</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\specific\scene\general_scene\login_page\login_page_sp.h">
+      <Filter>头文件\specific\scene\general_scene\login_page</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\scheduler_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\help_page_data.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="res\home_page_data.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="res\login_page_data.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\scene\general_scene\help_page\help_page_display.cc">
+      <Filter>源文件\scene\general_scene\help_page</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\scene\general_scene\home_page\home_page_display.cc">
+      <Filter>源文件\scene\general_scene\home_page</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\link\link_config.cc">
+      <Filter>源文件\link</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\scene\general_scene\login_page\login_page_display.cc">
+      <Filter>源文件\scene\general_scene\login_page</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\mouse\mouse_config.cc">
+      <Filter>源文件\mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\page\page_config.cc">
+      <Filter>源文件\page</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\reader\reader_config.cc">
+      <Filter>源文件\reader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\scene\scene_config.cc">
+      <Filter>源文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\scene\general_scene\general_scene_config.cc">
+      <Filter>源文件\scene\general_scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config\scheduler\schedule_config.cc">
+      <Filter>源文件\scheduler</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
