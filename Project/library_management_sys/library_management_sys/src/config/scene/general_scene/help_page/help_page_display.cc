@@ -1,9 +1,9 @@
-#include"error_base.h"
-#include"help_page_sp.h"
+#include"../../../../../inc/base/error_base.h"
+#include"../../../../../inc/specific/scene/general_scene/help_page/help_page_sp.h"
 #include<iostream>
 #include<windows.h>
 using namespace std;
-
+namespace library_management_sys {
 HelpPage::HelpPage(Mouse* attached_mouse, Scene* prev_scene,
                    PageUnitEx* pageunit_list_head)
     : GeneralScene(attached_mouse, prev_scene, pageunit_list_head) {}
@@ -24,3 +24,4 @@ bool HelpPage::prepareScene() {
   }
   return true;
 }
+}  // namespace library_management_sys

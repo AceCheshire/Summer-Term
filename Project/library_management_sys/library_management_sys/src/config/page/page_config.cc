@@ -1,9 +1,9 @@
-#include"error_base.h"
-#include"page_base.h"
+#include"../../../inc/base/error_base.h"
+#include"../../../inc/base/page_base.h"
 #include<iostream>
 #include<windows.h>
 using namespace std;
-
+namespace library_management_sys {
 void PageUnitEx::append(PageUnit& pageunit_list_end) {
   if (next_unit_ == NULL) {
     next_unit_ = new PageUnitEx;
@@ -125,3 +125,4 @@ bool Page::pointPaint(short i, short j, WORD request_color,
   }
   return true;
 }
+}  // namespace library_management_sys

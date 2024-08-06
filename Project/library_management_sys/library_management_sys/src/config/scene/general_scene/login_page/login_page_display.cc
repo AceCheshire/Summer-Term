@@ -1,9 +1,9 @@
-#include"error_base.h"
-#include"login_page_sp.h"
+#include"../../../../../inc/base/error_base.h"
+#include"../../../../../inc/specific/scene/general_scene/login_page/login_page_sp.h"
 #include<iostream>
 #include<windows.h>
 using namespace std;
-
+namespace library_management_sys {
 LoginPage::LoginPage(Mouse* attached_mouse, Scene* prev_scene,
                      PageUnitEx* pageunit_list_head)
     : GeneralScene(attached_mouse, prev_scene, pageunit_list_head) {}
@@ -61,3 +61,4 @@ void LoginPage::inputLoginInfo() {
     is_inputting_login_info_ = false;
   }
 }
+}  // namespace library_management_sys

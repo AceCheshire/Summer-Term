@@ -1,9 +1,9 @@
-#include"error_base.h"
-#include"general_scene_sp.h"
+#include"../../../../inc/base/error_base.h"
+#include"../../../../inc/specific/scene/general_scene_sp.h"
 #include<conio.h>
 #include<iostream>
 #pragma warning(disable:4996)
-
+namespace library_management_sys {
 GeneralScene::GeneralScene(Mouse* attached_mouse, Scene* prev_scene,
                            PageUnitEx* pageunit_list_head)
     : Scene(attached_mouse, prev_scene, pageunit_list_head) {}
@@ -80,3 +80,4 @@ void GeneralScene::keyRestore() {
 }
 
 Link* GeneralScene::button_list_[kMaxLinkNum] = {};
+}  // namespace library_management_sys

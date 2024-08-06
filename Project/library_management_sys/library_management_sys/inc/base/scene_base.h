@@ -1,6 +1,7 @@
 #pragma once
 #include"mouse_base.h"
 #include"page_base.h"
+namespace library_management_sys {
 constexpr int kMaxKeyNum = 256;
 constexpr int kMaxLinkNum = 64;
 
@@ -15,3 +16,4 @@ class Scene {
   Scene* prev_scene_;
   PageUnitEx* pageunit_list_head_;
 };
+}  // namespace library_management_sys

@@ -1,8 +1,8 @@
-#include"mouse_base.h"
-#include"page_base.h"
+#include"../../../inc/base/mouse_base.h"
+#include"../../../inc/base/page_base.h"
 #include<iostream>
 #include<windows.h>
-
+namespace library_management_sys {
 Mouse::Mouse() {
   handle_mouse_output_ = GetStdHandle(STD_OUTPUT_HANDLE);
   hwnd_mouse_foreground_ = GetForegroundWindow();
@@ -12,7 +12,7 @@ Mouse::Mouse() {
   MoveWindow(hwnd_mouse_foreground_, 0, 0, kClassicWidth, kClassicHeight, TRUE);
 }
 
-std::string Mouse::hoverAndClick(PageUnitEx* source_text) {
+std::string Mouse::hoverAndClick(PageUnitEx& source_text) {
   short x;
   short y;
   int counter = kMouseDetectGroupTimes;
@@ -39,7 +39,7 @@ char Mouse::readChar(COORD coord_pos) {
     return ' ';
 }
 
-std::string Mouse::readCursorChars(PageUnitEx* source_text) {
+std::string Mouse::readCursorChars(PageUnitEx& source_text) {
   COORD floating_left_pos = coord_mouse_pos_;
   COORD floating_right_pos = coord_mouse_pos_;
   floating_right_pos.X++;
@@ -74,9 +74,10 @@ std::string Mouse::readCursorChars(PageUnitEx* source_text) {
   return read_string;
 }
 
-void Mouse::popLastStr(PageUnitEx* source_text) {
+void Mouse::popLastStr(PageUnitEx& source_text) {
   Page tmp_page;
   PageUnitEx* tmp_pointer = NULL;
-  if (!read_str_.empty()) tmp_pointer = source_text->findByText(read_str_);
+  if (!read_str_.empty()) tmp_pointer = source_text.findByText(read_str_);
   if (tmp_pointer != NULL) tmp_page.pointPaint(tmp_pointer->getPageUnit());
 }
+}  // namespace library_management_sys

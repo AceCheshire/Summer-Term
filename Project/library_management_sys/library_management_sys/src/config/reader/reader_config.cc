@@ -1,9 +1,9 @@
-#include"page_base.h"
-#include"reader_base.h"
+#include"../../../inc/base/page_base.h"
+#include"../../../inc/base/reader_base.h"
 #include<fstream>
 #include<string>
 #include<windows.h>
-
+namespace library_management_sys {
 bool Reader::readForPointPaint(PageUnitEx* pageunit_list_head,
                                std::string file_name) {
   std::ifstream input_file;
@@ -33,3 +33,4 @@ bool Reader::readForPointPaint(PageUnitEx* pageunit_list_head,
   } else
     return false;
 }
+}  // namespace library_management_sys

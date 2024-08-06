@@ -1,13 +1,13 @@
-#include"error_base.h"
-#include"link_base.h"
+#include"../../../inc/base/link_base.h"
+#include"../../../inc/base/error_base.h"
 #include<iostream>
 #include<windows.h>
 using namespace std;
-
-Link::Link(std::string symbol_str, Scene& next_scene)
+namespace library_management_sys {
+Link::Link(std::string symbol_str, unsigned short next_scene)
     : symbol_str_(symbol_str), next_scene_serial_(&next_scene) {}
 
-Link::Link(char* symbol_str, Scene& next_scene) throw(...) {
+Link::Link(char* symbol_str, unsigned short next_scene) throw(...) {
   try {
     next_scene_serial_ = &next_scene;
     if (symbol_str != NULL)
@@ -30,3 +30,4 @@ bool Link::switchScene(std::string request_str) {
   }
   return false;
 }
+}  // namespace library_management_sys

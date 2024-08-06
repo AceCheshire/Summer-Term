@@ -13,24 +13,24 @@ namespace library_management_sys {
 // to connect Scene instances. 
 // Example: 
 //    std::string test_str;
-//    GeneralScene test_next_scene, test_this_scene;
-//    Link test_link(test_str, test_next_scene);
+// 	  unsigned short test_next_scene_serial;
+//    GeneralScene test_this_scene;
+//    Link test_link(test_str, test_next_scene_serial);
 //    test_this_scene.appendLink(test_link);
 class Link {
  public:
   // It is a constructor with initialization list.
-  Link(std::string, Scene&);
-  // It is an overloaded constructor. New augment is char*.
+  Link(std::string symbol_str, unsigned short next_scene);
+  // It is an overloaded constructor. Different augment is char*.
   // Augment cannot be NULL, or it will throw a BasicError,
   // to be precise, kHeapPointerError will be thrown. Usually
   // the error will be caught by itself and it does cerr.
-  Link(char*, Scene&) throw(...);
+  Link(char* symbol_str, unsigned short next_scene) throw(...);
   // Its augment is the name of scene which you wanna turn to.
   // 
   // Returns true if the request of switching scenes has been accepted.
   // 
-  // There is no extra memory expense and the client has no need to
-  // delete it.
+  // The client has no need to delete it.
   // 
   // This method is usually called when the client only knows the
   // name but not the relevant serial number. Example:
@@ -39,9 +39,9 @@ class Link {
   //    Link test_link_list[kTestMaxNumber];
   //    for (int i = 0; i < kTestMaxNumber; i++)
   //    if (switchScene(test_scene_name)) break;
-  bool switchScene(std::string);
+  bool switchScene(std::string request_str);
 
- private:
+ protected:
   // Used to match with the scene name that client requests. empty
   // std::string cannot be matched, so it means blank link then.	
   std::string symbol_str_;

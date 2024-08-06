@@ -1,10 +1,11 @@
-#include"help_page_sp.h"
-#include"home_page_sp.h"
-#include"login_page_sp.h"
-#include"reader_base.h"
+#include"../inc/specific/scene/general_scene/help_page/help_page_sp.h"
+#include"../inc/specific/scene/general_scene/home_page/home_page_sp.h"
+#include"../inc/specific/scene/general_scene/login_page/login_page_sp.h"
+#include"../inc/base/reader_base.h"
 #include<iostream>
 #include<windows.h>
 using namespace std;
+using namespace library_management_sys;
 
 COORD screenPos;
 
