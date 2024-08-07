@@ -2,11 +2,11 @@
 // * File: mouse_base.h
 // * Author: Mai Tianle
 // * Date: 2024-08-06
-// * Description: Define class Mouse.
+// * Description: Declare class Mouse.
 #include <iostream>
 #include <windows.h>
 
-#include "page_base.h"
+#include "inc/base/page_base.h"
 #ifndef LMS_BASE_MOUSE_BASE_H_
 #define LMS_BASE_MOUSE_BASE_H_
 // Used to check if a key on keyboard is pressed down.
@@ -64,13 +64,13 @@ class Mouse {
   std::string hoverAndClick(PageUnitEx& source_text);
 
  protected:
-  // Return char according to augment, which is the position of the char.
+  // Returns char according to augment, which is the position of the char.
   char readChar(COORD coord_pos);
   // Return std::string that mouse is hovering on. Its augment is for internal
   // popLastStr to match with.
   std::string readCursorChars(PageUnitEx& source_text);
-  // Re - paint the std::string mouse used to hover on if mouse position has changed. 
-  // Augment is the pageunit_list_head_ of a Scene instance.
+  // Re - paints the std::string mouse used to hover on if mouse position has changed. 
+  // Augment is the pageunit_list_head_ of a Scene.
   void popLastStr(PageUnitEx& source_text);
   // Usually STD_OUTPUT_HANDLE on windows.
   HANDLE handle_mouse_output_;

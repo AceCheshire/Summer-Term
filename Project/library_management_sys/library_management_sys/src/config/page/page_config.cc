@@ -41,7 +41,7 @@ void Page::returnDefault() {
     throw kColorError;
 }
 
-bool Page::pointPaint(PageUnit request_unit) throw() {
+bool Page::pointPaint(PageUnit& request_unit) throw() {
   try {
     if (!SetConsoleTextAttribute(handle_page_output_, request_unit.color))
       throw kColorError;
@@ -91,8 +91,8 @@ bool Page::pointPaint(COORD request_pos, WORD request_color,
   return true;
 }
 
-bool Page::pointPaint(short i, short j, WORD request_color) throw() {
-  COORD request_pos = {i, j};
+bool Page::pointPaint(short x, short y, WORD request_color) throw() {
+  COORD request_pos = {x, y};
   try {
     if (!SetConsoleTextAttribute(handle_page_output_, request_color))
       throw kColorError;
@@ -107,9 +107,9 @@ bool Page::pointPaint(short i, short j, WORD request_color) throw() {
   return true;
 }
 
-bool Page::pointPaint(short i, short j, WORD request_color,
+bool Page::pointPaint(short x, short y, WORD request_color,
                       string request_string) throw() {
-  COORD request_pos = {i, j};
+  COORD request_pos = {x, y};
   try {
     if (!SetConsoleTextAttribute(handle_page_output_, request_color))
       throw kColorError;

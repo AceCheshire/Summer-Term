@@ -4,7 +4,7 @@
 #include<string>
 #include<windows.h>
 namespace library_management_sys {
-bool Reader::readForPointPaint(PageUnitEx* pageunit_list_head,
+bool Reader::readForPointPaint(PageUnitEx& pageunit_list_head,
                                std::string file_name) {
   std::ifstream input_file;
   input_file.open(file_name.c_str());
@@ -27,7 +27,7 @@ bool Reader::readForPointPaint(PageUnitEx* pageunit_list_head,
       COORD tmp_coord = {tmp_coord_x, tmp_coord_y};
       std::string tmp_str = tmp_line.substr(kStrBase);
       PageUnit tmp_page_unit = {tmp_coord, tmp_color, tmp_str};
-      pageunit_list_head->append(tmp_page_unit);
+      pageunit_list_head.append(tmp_page_unit);
     }
     return true;
   } else

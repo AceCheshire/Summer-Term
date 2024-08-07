@@ -1,19 +1,25 @@
-#pragma once
-#include"mouse_base.h"
-#include"page_base.h"
+// * License: Apache 2.0
+// * File: scene_base.h
+// * Author: Mai Tianle
+// * Date: 2024-08-07
+// * Description: Declare class Scene.
+#include "inc/base/page_base.h"
+#ifndef LMS_BASE_SCENE_BASE_H_
+#define LMS_BASE_SCENE_BASE_H_
 namespace library_management_sys {
-constexpr int kMaxKeyNum = 256;
-constexpr int kMaxLinkNum = 64;
-
+// Used to be a container for basic scene components.
 class Scene {
  public:
-  Scene(Mouse*, Scene*, PageUnitEx*);
+  // Constructor. Example: 
+  //    TestScene::TestScene(PageUnitEx& pageunit_list_head)
+  //        : Scene(pageunit_list_head) {}
+  Scene(PageUnitEx& pageunit_list_head);
+  // Declares general function that is used to start a scene.   
   virtual bool prepareScene() = 0;
 
  protected:
-  Mouse* attached_mouse_;
-  std::string mouse_msg_;
-  Scene* prev_scene_;
+  // Used for locate the address of scene text.
   PageUnitEx* pageunit_list_head_;
 };
 }  // namespace library_management_sys
+#endif  // LMS_BASE_SCENE_BASE_H_

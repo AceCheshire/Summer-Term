@@ -1,10 +1,10 @@
 // * License: Apache 2.0
-// * File: mouse_base.h
+// * File: page_base.h
 // * Author: Mai Tianle
 // * Date: 2024-08-06
-// * Description: Define struct PageUnit, class PageUnitEx and class Page.
-#include<iostream>
-#include<windows.h>
+// * Description: Declare struct PageUnit, class PageUnitEx and class Page.
+#include <iostream>
+#include <windows.h>
 #ifndef LMS_BASE_PAGE_BASE_H_
 #define LMS_BASE_PAGE_BASE_H_
 // In fact, color white is the combination of red, green and blue.
@@ -28,32 +28,61 @@ struct PageUnit {
   std::string text;
 };
 
-//
+// Provides extra functions to manage PageUnit group as linked list.
+// Example:
+//    PageUnitEx test_pageunit_ex; PageUnit test_unit_1, test_unit_2.
+//    test_pageunit_ex.append(test_unit_1);
+//    test_pageunit_ex.append(test_unit_2);
+//    test_pageunit_ex.deleteAll();
 class PageUnitEx {
  public:
-  void append(PageUnit&);
-  PageUnitEx* findByText(std::string);
+  // Usually the PageUnitEx used to call append() has not been assigned.
+  // Client shall delete it by deleteAll().
+  // Example:
+  //    PageUnitEx test_pageunit_ex;
+  //    test_pageunit_ex.append(new PageUnit);
+  void append(PageUnit& pageunit_list_end);
+  // Returns NULL if the PageUnitEx head and the followings do not match.
+  // Returns the first PageUnitEx* if one instance matches the text.
+  // Example: 
+  //    PageUnitEx* test_ex_pointer = test_pageunit_ex.findByText("Bingo");
+  //    PageUnit test_unit_result = test_ex_pointer->getPageUnit();
+  PageUnitEx* findByText(std::string text);
   PageUnit& getPageUnit() { return this_unit_; }
   PageUnitEx* getNext() { return next_unit_; }
+  // Deletes this PageUnitEx instance and the followings.
   void deleteAll();
 
  private:
   PageUnit this_unit_;
-  PageUnitEx* next_unit_;
+  PageUnitEx* next_unit_ = NULL;
 };
 
+// Collects some common functions used to change page text.
 class Page {
  public:
+  // Assigns the member handle_page_output_ with STD_OUTPUT_HANDLE.
   Page();
-  void hideCursor(bool);
+  // Augment true for hiding cursor of the shell page.
+  void hideCursor(bool is_to_hide_cursor);
+  // Throws BasicError(kColorError) if fails to turn to GROUND_DEFAULT.
   void returnDefault() throw();
-  bool pointPaint(PageUnit) throw();
-  bool pointPaint(COORD, WORD) throw();
-  bool pointPaint(COORD, WORD, std::string) throw();
-  bool pointPaint(short, short, WORD) throw();
-  bool pointPaint(short, short, WORD, std::string) throw();
+  // Returns true if text has been correctly set, after turns to GROUND_DEFAULT.
+  bool pointPaint(PageUnit& request_unit) throw();
+  // Departed version of pointPaint(PageUnit& request_unit) without text.
+  bool pointPaint(COORD request_pos, WORD request_color) throw();
+  // Departed version of pointPaint(PageUnit& request_unit) with text.
+  bool pointPaint(COORD request_pos, WORD request_color,
+                  std::string request_text) throw();
+  // Departed version of pointPaint(COORD request_pos, WORD request_color).
+  bool pointPaint(short x, short y, WORD request_color) throw();
+  // Departed version of pointPaint
+  // (COORD request_pos, WORD request_color, std::string request_text). 
+  bool pointPaint(short x, short y, WORD request_color,
+                  std::string request_text) throw();
 
  protected:
+  // Usually STD_OUTPUT_HANDLE on windows.
   HANDLE handle_page_output_;
 };
 }  // namespace library_management_sys

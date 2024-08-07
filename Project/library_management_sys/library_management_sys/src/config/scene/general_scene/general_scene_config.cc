@@ -4,14 +4,13 @@
 #include<iostream>
 #pragma warning(disable:4996)
 namespace library_management_sys {
-GeneralScene::GeneralScene(Mouse* attached_mouse, Scene* prev_scene,
-                           PageUnitEx* pageunit_list_head)
-    : Scene(attached_mouse, prev_scene, pageunit_list_head) {}
+GeneralScene::GeneralScene(PageUnitEx& pageunit_list_head)
+    : Scene(pageunit_list_head) {}
 
 void GeneralScene::findLink(std::string msg) {
   for (int i = 0; i < kMaxLinkNum; i++) {
     if (button_list_[i] != NULL) {
-      button_list_[i]->switchScene(msg);
+      button_list_[i]->switchSceneRequest(msg);
     }
   }
 }

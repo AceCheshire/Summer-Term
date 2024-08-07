@@ -2,7 +2,7 @@
 // * File: error_base.h
 // * Author: Mai Tianle
 // * Date: 2024-08-05
-// * Description: Define common errors to be called in catch(...).
+// * Description: Declare common errors to be called in catch(...).
 #ifndef LMS_BASE_ERROR_BASE_H_
 #define LMS_BASE_ERROR_BASE_H_
 namespace library_management_sys {
