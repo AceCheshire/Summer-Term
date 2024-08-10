@@ -26,10 +26,9 @@
     <ClInclude Include="inc\base\reader_base.h" />
     <ClInclude Include="inc\base\scene_base.h" />
     <ClInclude Include="inc\base\scheduler_base.h" />
-    <ClInclude Include="inc\specific\scene\general_scene\help_page\help_page_sp.h" />
-    <ClInclude Include="inc\specific\scene\general_scene\home_page\home_page_sp.h" />
-    <ClInclude Include="inc\specific\scene\general_scene\login_page\login_page_sp.h" />
-    <ClInclude Include="inc\specific\scene\general_scene_sp.h" />
+    <ClInclude Include="inc\specific\scene\help_page\help_page.h" />
+    <ClInclude Include="inc\specific\scene\home_page\home_page.h" />
+    <ClInclude Include="inc\specific\scene\login_page\login_page.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\help_page_data.txt" />
@@ -41,12 +40,11 @@
     <ClCompile Include="src\config\mouse\mouse_config.cc" />
     <ClCompile Include="src\config\page\page_config.cc" />
     <ClCompile Include="src\config\reader\reader_config.cc" />
-    <ClCompile Include="src\config\scene\general_scene\general_scene_config.cc" />
-    <ClCompile Include="src\config\scene\general_scene\help_page\help_page_display.cc" />
-    <ClCompile Include="src\config\scene\general_scene\home_page\home_page_display.cc" />
-    <ClCompile Include="src\config\scene\general_scene\login_page\login_page_display.cc" />
+    <ClCompile Include="src\config\scene\help_page\help_page_display.cc" />
+    <ClCompile Include="src\config\scene\home_page\home_page_display.cc" />
+    <ClCompile Include="src\config\scene\login_page\login_page_display.cc" />
     <ClCompile Include="src\config\scene\scene_config.cc" />
-    <ClCompile Include="src\config\scheduler\schedule_config.cc" />
+    <ClCompile Include="src\config\scheduler\scheduler_config.cc" />
     <ClCompile Include="src\main.cc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

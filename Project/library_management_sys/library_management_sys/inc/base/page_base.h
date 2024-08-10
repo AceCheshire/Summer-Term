@@ -14,6 +14,7 @@
 namespace library_management_sys {
 // It is equivalent to FOREGROUND_WHITE (7U) and "BACKGROUND_BLACK" (0).
 constexpr WORD GROUND_DEFAULT = 7U;
+
 // Records text attributes for each group of letters.
 // Example:
 //    PageUnit test_unit;
@@ -44,7 +45,7 @@ class PageUnitEx {
   void append(PageUnit& pageunit_list_end);
   // Returns NULL if the PageUnitEx head and the followings do not match.
   // Returns the first PageUnitEx* if one instance matches the text.
-  // Example: 
+  // Example:
   //    PageUnitEx* test_ex_pointer = test_pageunit_ex.findByText("Bingo");
   //    PageUnit test_unit_result = test_ex_pointer->getPageUnit();
   PageUnitEx* findByText(std::string text);
@@ -63,7 +64,7 @@ class Page {
  public:
   // Assigns the member handle_page_output_ with STD_OUTPUT_HANDLE.
   Page();
-  // Augment true for hiding cursor of the shell page.
+  // Argument true for hiding cursor of the shell page.
   void hideCursor(bool is_to_hide_cursor);
   // Throws BasicError(kColorError) if fails to turn to GROUND_DEFAULT.
   void returnDefault() throw();
@@ -77,7 +78,7 @@ class Page {
   // Departed version of pointPaint(COORD request_pos, WORD request_color).
   bool pointPaint(short x, short y, WORD request_color) throw();
   // Departed version of pointPaint
-  // (COORD request_pos, WORD request_color, std::string request_text). 
+  // (COORD request_pos, WORD request_color, std::string request_text).
   bool pointPaint(short x, short y, WORD request_color,
                   std::string request_text) throw();
 

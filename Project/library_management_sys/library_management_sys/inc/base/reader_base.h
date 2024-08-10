@@ -21,6 +21,7 @@ constexpr int kColorBase = 8;
 // Used in Reader::readForPointPaint(). It means the serial of
 // the PageUnit.text in each line.
 constexpr int kStrBase = 13;
+
 // Reads data files and makes relevant assignments.
 class Reader {
  public:

@@ -1,29 +1,20 @@
 ﻿  link_config.cc
-D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\link\link_config.cc(8,50): error C2440: “初始化”: 无法从“library_management_sys::Scene *”转换为“unsigned short”
-  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\link\link_config.cc(8,50):
-  没有使该转换得以执行的上下文
-  
-D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\link\link_config.cc(8,64): error C2439: “library_management_sys::Link::next_scene_serial_”: 未能初始化成员
-  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\inc\base\link_base.h(50,18):
-  参见“library_management_sys::Link::next_scene_serial_”的声明
-  
-D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\link\link_config.cc(12,26): error C2440: “=”: 无法从“library_management_sys::Scene *”转换为“unsigned short”
-  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\link\link_config.cc(12,26):
-  没有使该转换得以执行的上下文
-  
   mouse_config.cc
-  general_scene_config.cc
-D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\scene\general_scene\general_scene_config.cc(28,37): warning C4297: “library_management_sys::GeneralScene::layoutText”: 假定函数不引发异常，但确实发生了
-  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\scene\general_scene\general_scene_config.cc(28,37):
+  page_config.cc
+D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\page\page_config.cc(57,5): warning C4297: “library_management_sys::Page::returnDefault”: 假定函数不引发异常，但确实发生了
+  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\page\page_config.cc(57,5):
   在函数上指定了 __declspec(nothrow)、throw()、noexcept(true)或 noexcept
   
-D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\scene\general_scene\general_scene_config.cc(38,52): warning C4297: “library_management_sys::GeneralScene::waitInput”: 假定函数不引发异常，但确实发生了
-  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\scene\general_scene\general_scene_config.cc(38,52):
-  在函数上指定了 __declspec(nothrow)、throw()、noexcept(true)或 noexcept
-  
+  reader_config.cc
   help_page_display.cc
   home_page_display.cc
   login_page_display.cc
   scene_config.cc
+D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\scene\scene_config.cc(20,37): warning C4297: “library_management_sys::Scene::layoutText”: 假定函数不引发异常，但确实发生了
+  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\scene\scene_config.cc(20,37):
+  在函数上指定了 __declspec(nothrow)、throw()、noexcept(true)或 noexcept
+  
+  scheduler_config.cc
   main.cc
   正在生成代码...
+  library_management_sys.vcxproj -> D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\x64\Debug\library_management_sys.exe
