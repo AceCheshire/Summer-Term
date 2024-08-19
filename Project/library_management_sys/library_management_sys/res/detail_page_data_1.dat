@@ -1,0 +1,9 @@
+005 002 0007 0 Library Management System
+005 005 0007 1 Back
+015 005 0007 1 Modify
+025 005 0007 1 Cancel
+000 000 0000 1 Name
+000 000 0000 1 Password
+000 000 0000 1 Permission
+000 000 0000 0 Tag
+000 000 0000 0 History

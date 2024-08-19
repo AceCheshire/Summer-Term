@@ -8,15 +8,17 @@
 namespace library_management_sys {
 // Tag types of errors to benefit debugging.
 // Example:
-//    try throw kHeapPointerError;
-//    catch (BasicError& err_num) cerr << err_num << endl;
+//    try throw kNullPointer;
+//    catch (BasicError& err_num) std::wcerr << err_num << std::endl;
 enum BasicError {
   // throw when SetConsoleTextAttribute() fails.
-  kColorError = 1,
+  kColor = 1,
+
   // throw when SetConsoleCursorPosition() fails.
-  kCoordError,
+  kCoord,
+
   // throw when functions find any pointer is NULL.
-  kHeapPointerError
+  kNullPointer
 };
 }  // namespace library_management_sys
 #endif  // LMS_BASE_ERROR_BASE_H_

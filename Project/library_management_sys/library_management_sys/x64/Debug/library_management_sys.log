@@ -1,20 +1,27 @@
-﻿  link_config.cc
-  mouse_config.cc
-  page_config.cc
-D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\page\page_config.cc(57,5): warning C4297: “library_management_sys::Page::returnDefault”: 假定函数不引发异常，但确实发生了
-  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\page\page_config.cc(57,5):
-  在函数上指定了 __declspec(nothrow)、throw()、noexcept(true)或 noexcept
+﻿  book_base..cc
+  link_base.cc
+  reader_base.cc
+  detail_page.cc
+D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\inc\inheritance\scene\detail_page\detail_page.h(35,3): error C2365: “library_management_sys::detail_page::kAdd”: 重定义；以前的定义是“枚举数”
+  (编译源文件“src/definition/scene/detail_page/detail_page.cc”)
+  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\inc\inheritance\scene\detail_page\detail_page.h(24,44):
+  参见“library_management_sys::detail_page::kAdd”的声明
   
-  reader_config.cc
-  help_page_display.cc
-  home_page_display.cc
-  login_page_display.cc
-  scene_config.cc
-D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\scene\scene_config.cc(20,37): warning C4297: “library_management_sys::Scene::layoutText”: 假定函数不引发异常，但确实发生了
-  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\config\scene\scene_config.cc(20,37):
-  在函数上指定了 __declspec(nothrow)、throw()、noexcept(true)或 noexcept
+D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\inc\inheritance\scene\detail_page\detail_page.h(36,3): error C2365: “library_management_sys::detail_page::kModify”: 重定义；以前的定义是“枚举数”
+  (编译源文件“src/definition/scene/detail_page/detail_page.cc”)
+  D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\inc\inheritance\scene\detail_page\detail_page.h(24,59):
+  参见“library_management_sys::detail_page::kModify”的声明
   
-  scheduler_config.cc
+D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\definition\scene\detail_page\detail_page.cc(63,50): warning C4267: “+=”: 从“size_t”转换到“SHORT”，可能丢失数据
+D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\definition\scene\detail_page\detail_page.cc(69,23): error C2065: “request_”: 未声明的标识符
+D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\definition\scene\detail_page\detail_page.cc(74,3): error C2065: “request_”: 未声明的标识符
+  help_page.cc
+  home_page.cc
+  login_page.cc
+  portal_page.cc
+  scene_base.cc
+  search_page.cc
+  scheduler_base.cc
+  user_base.cc
   main.cc
   正在生成代码...
-  library_management_sys.vcxproj -> D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\x64\Debug\library_management_sys.exe

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\base\book_base.h" />
     <ClInclude Include="inc\base\error_base.h" />
     <ClInclude Include="inc\base\link_base.h" />
     <ClInclude Include="inc\base\mouse_base.h" />
@@ -26,26 +27,41 @@
     <ClInclude Include="inc\base\reader_base.h" />
     <ClInclude Include="inc\base\scene_base.h" />
     <ClInclude Include="inc\base\scheduler_base.h" />
-    <ClInclude Include="inc\specific\scene\help_page\help_page.h" />
-    <ClInclude Include="inc\specific\scene\home_page\home_page.h" />
-    <ClInclude Include="inc\specific\scene\login_page\login_page.h" />
+    <ClInclude Include="inc\base\user_base.h" />
+    <ClInclude Include="inc\inheritance\scene\detail_page\detail_page.h" />
+    <ClInclude Include="inc\inheritance\scene\help_page\help_page.h" />
+    <ClInclude Include="inc\inheritance\scene\home_page\home_page.h" />
+    <ClInclude Include="inc\inheritance\scene\login_page\login_page.h" />
+    <ClInclude Include="inc\inheritance\scene\portal_page\portal_page.h" />
+    <ClInclude Include="inc\inheritance\scene\search_page\search_page.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\help_page_data.txt" />
-    <Text Include="res\home_page_data.txt" />
-    <Text Include="res\login_page_data.txt" />
+    <Text Include="res\detail_page_data_1.dat" />
+    <Text Include="res\detail_page_data_2.dat" />
+    <Text Include="res\help_page_data.dat" />
+    <Text Include="res\home_page_data.dat" />
+    <Text Include="res\login_page_data.dat" />
+    <Text Include="res\portal_page_data.dat" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\config\link\link_config.cc" />
-    <ClCompile Include="src\config\mouse\mouse_config.cc" />
-    <ClCompile Include="src\config\page\page_config.cc" />
-    <ClCompile Include="src\config\reader\reader_config.cc" />
-    <ClCompile Include="src\config\scene\help_page\help_page_display.cc" />
-    <ClCompile Include="src\config\scene\home_page\home_page_display.cc" />
-    <ClCompile Include="src\config\scene\login_page\login_page_display.cc" />
-    <ClCompile Include="src\config\scene\scene_config.cc" />
-    <ClCompile Include="src\config\scheduler\scheduler_config.cc" />
+    <ClCompile Include="src\definition\book\book_base..cc" />
+    <ClCompile Include="src\definition\link\link_base.cc" />
+    <ClCompile Include="src\definition\mouse\mouse_base.cc" />
+    <ClCompile Include="src\definition\page\page_base.cc" />
+    <ClCompile Include="src\definition\reader\reader_base.cc" />
+    <ClCompile Include="src\definition\scene\detail_page\detail_page.cc" />
+    <ClCompile Include="src\definition\scene\help_page\help_page.cc" />
+    <ClCompile Include="src\definition\scene\home_page\home_page.cc" />
+    <ClCompile Include="src\definition\scene\login_page\login_page.cc" />
+    <ClCompile Include="src\definition\scene\portal_page\portal_page.cc" />
+    <ClCompile Include="src\definition\scene\scene_base.cc" />
+    <ClCompile Include="src\definition\scene\search_page\search_page.cc" />
+    <ClCompile Include="src\definition\scheduler\scheduler_base.cc" />
+    <ClCompile Include="src\definition\user\user_base.cc" />
     <ClCompile Include="src\main.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\search_page_data.dat" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

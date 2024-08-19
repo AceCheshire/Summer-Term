@@ -16,47 +16,74 @@
     <Filter Include="头文件\base">
       <UniqueIdentifier>{acaf7539-37b8-4609-9853-f75a104adcc8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\specific">
-      <UniqueIdentifier>{e40e2c8b-ef35-4094-9544-555c360bb06a}</UniqueIdentifier>
+    <Filter Include="源文件\definition">
+      <UniqueIdentifier>{73a3912e-2557-48c1-99e1-926380f14512}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\specific\scene">
-      <UniqueIdentifier>{42c60722-e061-40d9-8821-0590967a9724}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\link">
+    <Filter Include="源文件\definition\link">
       <UniqueIdentifier>{cea58b42-715d-4a32-a92c-985dee7baa35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\scene">
-      <UniqueIdentifier>{e5deaafd-f2fe-40a5-9aaf-5fca8ee7e1c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\reader">
-      <UniqueIdentifier>{305d204d-0784-4ac5-9c45-2973af80edee}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\mouse">
+    <Filter Include="源文件\definition\mouse">
       <UniqueIdentifier>{f25456d5-72e3-494a-aa3a-2ee7a8fd76ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\page">
+    <Filter Include="源文件\definition\page">
       <UniqueIdentifier>{54a718d5-12e6-42bc-b709-89979aba5793}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\scheduler">
-      <UniqueIdentifier>{b2cde7e1-e64a-46d6-9713-6ac1f006bca3}</UniqueIdentifier>
+    <Filter Include="源文件\definition\reader">
+      <UniqueIdentifier>{305d204d-0784-4ac5-9c45-2973af80edee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\specific\scene\help_page">
-      <UniqueIdentifier>{3cc9f7aa-df47-48b5-bb1b-886b0604f36a}</UniqueIdentifier>
+    <Filter Include="源文件\definition\scene">
+      <UniqueIdentifier>{e5deaafd-f2fe-40a5-9aaf-5fca8ee7e1c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\specific\scene\home_page">
-      <UniqueIdentifier>{7a4b6b9b-ab53-468e-a88d-ef4b4b908286}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\specific\scene\login_page">
-      <UniqueIdentifier>{3c41425f-3939-415d-b68f-f3ffaf8945f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\scene\help_page">
+    <Filter Include="源文件\definition\scene\help_page">
       <UniqueIdentifier>{677970c1-f48b-441d-8e34-6b1279345a19}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\scene\login_page">
+    <Filter Include="源文件\definition\scene\login_page">
       <UniqueIdentifier>{abe3e8cb-3cf1-452a-89e1-0bdb7ca63d69}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\scene\home_page">
+    <Filter Include="源文件\definition\scene\home_page">
       <UniqueIdentifier>{82d77fbc-67a3-466c-a3c1-634711c89aca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\definition\scene\portal_page">
+      <UniqueIdentifier>{273110cb-504a-45cb-b478-a16f5907af8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\definition\scene\search_page">
+      <UniqueIdentifier>{89029aaf-b66b-484a-9881-463bd9f969ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\definition\scheduler">
+      <UniqueIdentifier>{b2cde7e1-e64a-46d6-9713-6ac1f006bca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\definition\user">
+      <UniqueIdentifier>{31cfaf4a-d4f4-4564-a322-e03d23cf41b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\definition\book">
+      <UniqueIdentifier>{eb5c14f2-d8ee-44f7-88e1-0984061c99a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inheritance">
+      <UniqueIdentifier>{e40e2c8b-ef35-4094-9544-555c360bb06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inheritance\scene">
+      <UniqueIdentifier>{42c60722-e061-40d9-8821-0590967a9724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inheritance\scene\help_page">
+      <UniqueIdentifier>{3cc9f7aa-df47-48b5-bb1b-886b0604f36a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inheritance\scene\home_page">
+      <UniqueIdentifier>{7a4b6b9b-ab53-468e-a88d-ef4b4b908286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inheritance\scene\login_page">
+      <UniqueIdentifier>{3c41425f-3939-415d-b68f-f3ffaf8945f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inheritance\scene\portal_page">
+      <UniqueIdentifier>{53982b29-797f-4ffb-a6bc-93f799f69311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inheritance\scene\search_page">
+      <UniqueIdentifier>{afb792de-b7fd-41a5-9ae4-7abb55c3d53f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\inheritance\scene\detail_page">
+      <UniqueIdentifier>{2c4abd16-e4fb-4db0-9391-e15a03a12ab9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\definition\scene\detail_page">
+      <UniqueIdentifier>{161bdac0-9818-43b6-bc66-95865c0a7581}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -81,24 +108,48 @@
     <ClInclude Include="inc\base\scheduler_base.h">
       <Filter>头文件\base</Filter>
     </ClInclude>
-    <ClInclude Include="inc\specific\scene\help_page\help_page.h">
-      <Filter>头文件\specific\scene\help_page</Filter>
+    <ClInclude Include="inc\inheritance\scene\help_page\help_page.h">
+      <Filter>头文件\inheritance\scene\help_page</Filter>
     </ClInclude>
-    <ClInclude Include="inc\specific\scene\home_page\home_page.h">
-      <Filter>头文件\specific\scene\home_page</Filter>
+    <ClInclude Include="inc\inheritance\scene\home_page\home_page.h">
+      <Filter>头文件\inheritance\scene\home_page</Filter>
     </ClInclude>
-    <ClInclude Include="inc\specific\scene\login_page\login_page.h">
-      <Filter>头文件\specific\scene\login_page</Filter>
+    <ClInclude Include="inc\inheritance\scene\login_page\login_page.h">
+      <Filter>头文件\inheritance\scene\login_page</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\inheritance\scene\portal_page\portal_page.h">
+      <Filter>头文件\inheritance\scene\portal_page</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\user_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\book_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\inheritance\scene\search_page\search_page.h">
+      <Filter>头文件\inheritance\scene\search_page</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\inheritance\scene\detail_page\detail_page.h">
+      <Filter>头文件\inheritance\scene\detail_page</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\help_page_data.txt">
+    <Text Include="res\help_page_data.dat">
       <Filter>资源文件</Filter>
     </Text>
-    <Text Include="res\home_page_data.txt">
+    <Text Include="res\home_page_data.dat">
       <Filter>资源文件</Filter>
     </Text>
-    <Text Include="res\login_page_data.txt">
+    <Text Include="res\login_page_data.dat">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="res\portal_page_data.dat">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="res\detail_page_data_1.dat">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="res\detail_page_data_2.dat">
       <Filter>资源文件</Filter>
     </Text>
   </ItemGroup>
@@ -106,32 +157,52 @@
     <ClCompile Include="src\main.cc">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\link\link_config.cc">
-      <Filter>源文件\link</Filter>
+    <ClCompile Include="src\definition\link\link_base.cc">
+      <Filter>源文件\definition\link</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\mouse\mouse_config.cc">
-      <Filter>源文件\mouse</Filter>
+    <ClCompile Include="src\definition\mouse\mouse_base.cc">
+      <Filter>源文件\definition\mouse</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\page\page_config.cc">
-      <Filter>源文件\page</Filter>
+    <ClCompile Include="src\definition\page\page_base.cc">
+      <Filter>源文件\definition\page</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\reader\reader_config.cc">
-      <Filter>源文件\reader</Filter>
+    <ClCompile Include="src\definition\reader\reader_base.cc">
+      <Filter>源文件\definition\reader</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\scene\scene_config.cc">
-      <Filter>源文件\scene</Filter>
+    <ClCompile Include="src\definition\scene\scene_base.cc">
+      <Filter>源文件\definition\scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\scheduler\scheduler_config.cc">
-      <Filter>源文件\scheduler</Filter>
+    <ClCompile Include="src\definition\scheduler\scheduler_base.cc">
+      <Filter>源文件\definition\scheduler</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\scene\help_page\help_page_display.cc">
-      <Filter>源文件\scene\help_page</Filter>
+    <ClCompile Include="src\definition\scene\help_page\help_page.cc">
+      <Filter>源文件\definition\scene\help_page</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\scene\home_page\home_page_display.cc">
-      <Filter>源文件\scene\home_page</Filter>
+    <ClCompile Include="src\definition\scene\home_page\home_page.cc">
+      <Filter>源文件\definition\scene\home_page</Filter>
     </ClCompile>
-    <ClCompile Include="src\config\scene\login_page\login_page_display.cc">
-      <Filter>源文件\scene\login_page</Filter>
+    <ClCompile Include="src\definition\scene\login_page\login_page.cc">
+      <Filter>源文件\definition\scene\login_page</Filter>
     </ClCompile>
+    <ClCompile Include="src\definition\scene\portal_page\portal_page.cc">
+      <Filter>源文件\definition\scene\portal_page</Filter>
+    </ClCompile>
+    <ClCompile Include="src\definition\book\book_base..cc">
+      <Filter>源文件\definition\book</Filter>
+    </ClCompile>
+    <ClCompile Include="src\definition\scene\search_page\search_page.cc">
+      <Filter>源文件\definition\scene\search_page</Filter>
+    </ClCompile>
+    <ClCompile Include="src\definition\user\user_base.cc">
+      <Filter>源文件\definition\user</Filter>
+    </ClCompile>
+    <ClCompile Include="src\definition\scene\detail_page\detail_page.cc">
+      <Filter>源文件\definition\scene\detail_page</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\search_page_data.dat">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

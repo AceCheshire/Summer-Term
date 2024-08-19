@@ -1,0 +1,8 @@
+005 002 0007 0 Library Management System
+130 002 0007 0 , hello
+142 002 0007 0 Exit
+010 010 0007 0 Management >
+020 013 0007 1 User
+020 016 0007 1 Book
+010 019 0007 0 Analysis >
+020 022 0007 1 Statistics

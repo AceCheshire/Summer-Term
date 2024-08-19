@@ -1,5 +1,0 @@
-084 012 0007 Library_Management_System
-065 017 0007 Admin_ID_/_name:
-065 019 0007 Admin_password:
-075 021 0007 forget_your_password?
-092 023 0007 Login

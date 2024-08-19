@@ -1,6 +1,0 @@
-084 012 0007 Library_Management_System
-089 017 0007 Login_as_admin
-089 019 0007 Login_as_guest
-094 021 0007 Help
-092 023 0007 Setting
-094 025 0007 Exit
