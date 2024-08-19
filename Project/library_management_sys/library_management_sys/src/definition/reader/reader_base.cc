@@ -111,6 +111,7 @@ bool Reader::deleteFileLine(const std::wstring& file_name,
   } else
     return false;  // Fails to open file
 
+  if (file_data.back() == L'\n') file_data.pop_back();
   output_file.open(file_name);  // Open the file
   if (output_file.is_open()) {
     output_file.flush();
@@ -134,5 +135,35 @@ bool Reader::deleteDirectory(const std::wstring& directory_path) {
   }
   deleteDirectory(directory_path); // Delete empty folder
   return true;
+}
+
+bool Reader::appendLine(const std::wstring& file_name,
+    const std::wstring& new_line) {
+  std::wifstream input_file;
+  input_file.imbue(std::locale("chs"));
+  std::wofstream output_file;
+  output_file.imbue(std::locale("chs"));  // Create temp file stream
+  std::wstring file_data;                 // Used to record modified file
+  std::wstring line_data;                 // Used to copy data to file_data
+  input_file.open(file_name);             // Open the file
+  if (input_file.is_open()) {
+    // Maintain the result of modified file
+    while (getline(input_file, line_data)) {
+      file_data += line_data;
+      file_data += L"\n";
+    }
+    input_file.close();
+  } else
+    return false;  // Fails to open file
+
+  file_data += new_line;
+  output_file.open(file_name);  // Open the file
+  if (output_file.is_open()) {
+    output_file.flush();
+    output_file << file_data;
+    output_file.close();
+    return true;
+  } else
+    return false;  // Fails to open file
 }
 }  // namespace library_management_sys

@@ -56,7 +56,7 @@ class User {
 
   // Records whether user has permission to change the info.
   // True means read and write, and false means read only.
-  bool permission_;
+  bool permission_ = false;
 
   /*std::wstring viewing_history;*/
 

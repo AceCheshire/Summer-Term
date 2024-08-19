@@ -121,6 +121,8 @@ class DetailPage : public Scene {
   // pointer at the calculated place.
   void pointerDisplay(const std::wstring& match_text);
 
+  void historyDisplay();
+
   // Used to record the user detail page
   PageUnitEx* pageunit_list_head_1_;
 

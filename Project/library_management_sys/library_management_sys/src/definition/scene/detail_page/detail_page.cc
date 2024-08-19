@@ -169,9 +169,22 @@ bool DetailPage::checkLink(unsigned short check_mode) {
 void DetailPage::displayInfo(COORD offset, WORD color) {
   Page tmp_page;
   if (*shared_task_ % 10 == detail_page::kAdd) {
-    tmp_page.pointPaint(detail_page::kAddPos,page::GROUND_DEFAULT,)
+    tmp_page.pointPaint(detail_page::kAddPos, page::GROUND_DEFAULT,
+                        L"                              ");
+    tmp_page.pointPaint(detail_page::kAddPos, detail_page::kAddColor,
+                        detail_page::kAddText);
+    tmp_page.pointPaint(detail_page::kCancelPos, detail_page::kCancelColor,
+                        detail_page::kCancelText);
   } else {
     if (*shared_task_ / 10 == detail_page::kUser) {
+      tmp_page.pointPaint(detail_page::kAddPos, page::GROUND_DEFAULT,
+                          L"                              ");
+      if (current_user_->checkPermission()) {
+        tmp_page.pointPaint(detail_page::kModifyPos, detail_page::kModifyColor,
+                            detail_page::kModifyText);
+        tmp_page.pointPaint(detail_page::kCancelPos, detail_page::kCancelColor,
+                            detail_page::kCancelText);
+      }
       tmp_page.pointPaint(getInfoPosition(detail_page::kNameText),
                           page::GROUND_DEFAULT, searching_user_->getName());
       tmp_page.pointPaint(
@@ -181,6 +194,19 @@ void DetailPage::displayInfo(COORD offset, WORD color) {
       tmp_page.pointPaint(getInfoPosition(detail_page::kTagText),
                           page::GROUND_DEFAULT, searching_user_->getTag());
     } else if (*shared_task_ / 10 == detail_page::kBook) {
+      tmp_page.pointPaint(detail_page::kAddPos, page::GROUND_DEFAULT,
+                          L"                              ");
+      if (current_user_->checkPermission()) {
+        tmp_page.pointPaint(detail_page::kModifyPos, detail_page::kModifyColor,
+                            detail_page::kModifyText);
+        tmp_page.pointPaint(detail_page::kCancelPos, detail_page::kCancelColor,
+                            detail_page::kCancelText);
+      } else {
+        tmp_page.pointPaint(detail_page::kReturnPos, detail_page::kReturnColor,
+                            detail_page::kReturnText);
+        tmp_page.pointPaint(detail_page::kBorrowPos, detail_page::kBorrowColor,
+                            detail_page::kBorrowText);
+      }
       tmp_page.pointPaint(getInfoPosition(detail_page::kNameText),
                           page::GROUND_DEFAULT, searching_book_->getName());
       tmp_page.pointPaint(getInfoPosition(detail_page::kAuthorText),

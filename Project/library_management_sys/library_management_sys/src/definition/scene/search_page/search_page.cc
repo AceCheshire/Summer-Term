@@ -79,8 +79,8 @@ bool SearchPage::checkLink(unsigned short check_mode) {
       iterator_ = search_size_ = 0;
       search();
       return searchDisplay();
-    case search_page::kAddLink:
-      *shared_task_ = *shared_task_ * 10 + search_page::kAddLink;
+    case search_page::kAdd:
+      *shared_task_ = *shared_task_ * 10 + search_page::kAdd;
       return true;
     case search_page::kDelete:
       del(result_[iterator_ - 1]);
@@ -95,12 +95,12 @@ bool SearchPage::checkLink(unsigned short check_mode) {
       else iterator_++;
       pointerDisplay();
       return false;
-    case search_page::kModifyLink:
+    case search_page::kModify:
       if (*shared_task_ == search_page::kUser)
         searching_user_->setName(result_[iterator_ - 1]);
       if (*shared_task_ == search_page::kBook)
         searching_book_->setName(result_[iterator_ - 1]);
-      *shared_task_ = *shared_task_ * 10 + search_page ::kModifyLink;
+      *shared_task_ = *shared_task_ * 10 + search_page ::kModify;
       return true;
     default:
       return false;

@@ -85,6 +85,9 @@ class Reader {
   // Example:
   //    test_reader. 
   bool deleteDirectory(const std::wstring& directory_path);
+
+  // Used to append a file new lines.
+  bool appendLine(const std::wstring& file_name, const std::wstring& new_line);
 };
 }  // namespace library_management_sys
 #endif  // LMS_BASE_READER_BASE_H_

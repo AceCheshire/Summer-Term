@@ -75,12 +75,12 @@ int main() {
   Link portal_to_search_user(global_scheduler, L"User", 3, 4, portal_page::kUser);
   Link portal_to_search_book(global_scheduler, L"Book", 3, 4, portal_page::kBook);
   Link search_to_portal(global_scheduler, L"Back", 4, 3, 0);
-  Link search_add(global_scheduler, L"Add", 4, 4, search_page::kAddLink);
+  Link search_add(global_scheduler, L"Add", 4, 4, search_page::kAdd);
   Link search_delete(global_scheduler, L"Delete", 4, 4, search_page::kDelete);
   Link search_search(global_scheduler, L"Search", 4, 4, search_page::kSearch);
   Link search_up(global_scheduler, L"Up", 4, 4, search_page::kUp);
   Link search_down(global_scheduler, L"Down", 4, 4, search_page::kDown);
-  Link search_modify(global_scheduler, L"Modify", 4, 4, search_page::kModifyLink);
+  Link search_modify(global_scheduler, L"Modify", 4, 4, search_page::kModify);
 
   // Maintain button_list_
   global_scheduler.appendLink(home_to_login);
