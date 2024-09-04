@@ -20,13 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\base\book_base.h" />
-    <ClInclude Include="inc\base\error_base.h" />
+    <ClInclude Include="inc\app_const.h" />
     <ClInclude Include="inc\base\link_base.h" />
     <ClInclude Include="inc\base\mouse_base.h" />
     <ClInclude Include="inc\base\page_base.h" />
     <ClInclude Include="inc\base\reader_base.h" />
     <ClInclude Include="inc\base\scene_base.h" />
     <ClInclude Include="inc\base\scheduler_base.h" />
+    <ClInclude Include="inc\base\statistic_base.h" />
     <ClInclude Include="inc\base\user_base.h" />
     <ClInclude Include="inc\inheritance\scene\detail_page\detail_page.h" />
     <ClInclude Include="inc\inheritance\scene\help_page\help_page.h" />
@@ -36,8 +37,6 @@
     <ClInclude Include="inc\inheritance\scene\search_page\search_page.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\detail_page_data_1.dat" />
-    <Text Include="res\detail_page_data_2.dat" />
     <Text Include="res\help_page_data.dat" />
     <Text Include="res\home_page_data.dat" />
     <Text Include="res\login_page_data.dat" />
@@ -57,10 +56,18 @@
     <ClCompile Include="src\definition\scene\scene_base.cc" />
     <ClCompile Include="src\definition\scene\search_page\search_page.cc" />
     <ClCompile Include="src\definition\scheduler\scheduler_base.cc" />
+    <ClCompile Include="src\definition\statistic\statistic_base.cc" />
     <ClCompile Include="src\definition\user\user_base.cc" />
     <ClCompile Include="src\main.cc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="res\detail_page_data_1.dat" />
+    <None Include="res\detail_page_data_2.dat" />
+    <None Include="res\detail_page_data_3.dat" />
+    <None Include="res\detail_page_data_4.dat" />
+    <None Include="res\detail_page_data_5.dat" />
+    <None Include="res\detail_page_data_6.dat" />
     <None Include="res\search_page_data.dat" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -165,6 +172,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\library_management_sys</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

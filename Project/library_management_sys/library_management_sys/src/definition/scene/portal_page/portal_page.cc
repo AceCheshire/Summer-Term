@@ -1,61 +1,74 @@
-// * License: Apache 2.0
-// * File: portal_page.cc
-// * Author: Mai Tianle
-// * Date: 2024-08-11
-// * Description: Define class PortalPage.
+// * 文件：portal_page.cc
+// * 作者：麦天乐
+// * 介绍：定义 PortalPage 类。
 #include "inc/inheritance/scene/portal_page/portal_page.h"
 
 #include <windows.h>
 
-#include <iostream>
-
-#include "inc/base/error_base.h"
+#include "inc/app_const.h"
 #include "inc/base/page_base.h"
+#include "inc/base/scene_base.h"
+#include "inc/base/scheduler_base.h"
+#include "inc/base/statistic_base.h"
 #include "inc/base/user_base.h"
 namespace library_management_sys {
-PortalPage::PortalPage(PageUnitEx& pageunit_list_head, User& current_user,
-                       int& shared_task)
-    : Scene(pageunit_list_head),
-      current_user_(&current_user),
-      shared_task_(&shared_task) {}
+PortalPage::PortalPage(PageUnitEx& pageunit_list_head, Scheduler& scheduler)
+    : SharedScene(pageunit_list_head), scheduler_(&scheduler) {}
 
 bool PortalPage::prepareScene() {
-  try {
-    layoutText();
-    displayUserName();
-  } catch (BasicError& err_num) {
-    // Red error output
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
-    std::wcout.imbue(std::locale("chs"));
-    std::wcout << std::endl;
-    std::wcerr << L"ERR: class PortalPage | function prepareScene | err_num "
-              << err_num << std::endl;
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
-                            FOREGROUND_WHITE);  // Set default color
-    return false;
-  }
+  layoutText();
+  displayUserName();
+  displayStatistic();
+  // 数据成员复位
+  shared_task_ = 0;
+  searching_book_.clear();
+  searching_user_.clear();
   return true;
 }
 
 void PortalPage::displayUserName() {
-  Page tmp_page;                 // Used for Page interface
-  PageUnitEx* tmp_unit_pointer;  // Used as the return of findByText()
-  std::wstring user_name = current_user_->getName();
-  // If the return of findByText() is not NULL, which means found
-  if ((tmp_unit_pointer = pageunit_list_head_->findByText(L", hello")) != NULL)
-    tmp_page.pointPaint(
-        // The ideal format is "user_name, hello", below are the calculation
-        tmp_unit_pointer->getPageUnit().pos.X - (short)user_name.length(),
-        tmp_unit_pointer->getPageUnit().pos.Y, page::GROUND_DEFAULT, user_name);
+  PageUnit tmp_unit;
+  std::wstring user_name = current_user_.getName();
+  tmp_unit = (*pageunit_list_head_)[L", hello"];  // 提示词定位
+  Page::pointPaint(tmp_unit.pos_.X - (short)user_name.length(), tmp_unit.pos_.Y,
+                   page::GROUND_DEFAULT,
+                   user_name);  // 理想格式为：user_name, hello
+}
+
+void PortalPage::displayStatistic() {
+  // 显示最受欢迎图书
+  COORD tmp_position = (*pageunit_list_head_)[L"Best Book:"].pos_;
+  tmp_position.X += portal_page::kOutputOffset.X;
+  tmp_position.Y += portal_page::kOutputOffset.Y;
+  Page::pointPaint(tmp_position, page::GROUND_DEFAULT,
+                   Statistic::getBestBook());
+  // 显示借阅最多用户
+  tmp_position = (*pageunit_list_head_)[L"Best Reader:"].pos_;
+  tmp_position.X += portal_page::kOutputOffset.X;
+  tmp_position.Y += portal_page::kOutputOffset.Y;
+  Page::pointPaint(tmp_position, page::GROUND_DEFAULT,
+                   Statistic::getBestReader());
+  // 显示借阅总量
+  tmp_position = (*pageunit_list_head_)[L"Borrowing Number:"].pos_;
+  tmp_position.X += portal_page::kOutputOffset.X;
+  tmp_position.Y += portal_page::kOutputOffset.Y;
+  Page::pointPaint(tmp_position, page::GROUND_DEFAULT,
+                   std::to_wstring(Statistic::getBorrowNum()));
+  // 显示条形图
+  Statistic::graph(portal_page::kOrigin, portal_page::kGraphSize.Y,
+                   portal_page::kGraphSize.X, 1);
 }
 
 bool PortalPage::checkLink(unsigned short check_mode) {
   switch (check_mode) {
     case portal_page::kUser:
-      *shared_task_ = portal_page::kUser;
+      shared_task_ = portal_page::kUser;
       break;
     case portal_page::kBook:
-      *shared_task_ = portal_page::kBook;
+      shared_task_ = portal_page::kBook;
+      break;
+    case portal_page::kExit:
+      scheduler_->exit();
       break;
   }
   return true;

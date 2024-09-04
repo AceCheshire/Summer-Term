@@ -1,70 +1,36 @@
-// * License: Apache 2.0
-// * File: login_page.h
-// * Author: Mai Tianle
-// * Date: 2024-08-08
-// * Description: Declare class LoginPage.
-#include <windows.h>
-
+// * 文件：login_page.h
+// * 作者：麦天乐
+// * 介绍：声明 LoginPage 类。
 #include <string>
 
 #include "inc/base/page_base.h"
 #include "inc/base/scene_base.h"
-#include "inc/base/user_base.h"
-#ifndef LMS_SPECIFIC_SCENE_LOGIN_PAGE_H_
-#define LMS_SPECIFIC_SCENE_LOGIN_PAGE_H_
+#ifndef LMS_INHERITANCE_SCENE_LOGIN_PAGE_H_
+#define LMS_INHERITANCE_SCENE_LOGIN_PAGE_H_
 namespace library_management_sys {
-namespace login_page {
-// File name that is used to load LoginPage.
-constexpr wchar_t kPageDataSource[] = L"res/login_page_data.dat";
-
-// Guidance text that point out the position for ID / name.
-constexpr wchar_t kNameText[] = L"ID / name:";
-
-// Guidance text that point out the position for password.
-constexpr wchar_t kPasswordText[] = L"Password:";
-
-// Error output text that displayed when wrong input occurs.
-constexpr wchar_t kErrorText[] = L"(wrong?)";
-
-// How far the input column will appear from the guidance like "Name:".
-constexpr COORD kInputOffset = {11, 0};
-}  // namespace login_page
-
-// Used to shape the norm of login pages.
-// Example:
+// 规定了应用登录页面的范式。示例：
 //    PageUnitEx test_unit_ex;
 //    LoginPage test_login_page(test_unit_ex);
-class LoginPage : public Scene {
+class LoginPage : public SharedScene {
  public:
-  LoginPage(PageUnitEx& pageunit_list_head, User& current_user);  // Constructor.
-
-  // Returns true if no errors are thrown.
-  // Used to start a scene. Example:
+  LoginPage(PageUnitEx& pageunit_list_head);  // 构造函数
+  // 用于启动场景，并返回真。示例：
   //    test_scene.prepareScene();
   bool prepareScene();
-
-  // Works when client is inputting text of name or password.
-  // Example:
+  // 在用户输入名称和密码文本时被执行。示例：
   //    while (is_inputting_info_) text_scene.inputInfo();
   void inputInfo();
-
-  // Returns true if name and password is matched and updates current_user_.
-  // Displays "(wrong?)" if not matched.
+  // 如果名称与密码匹配，返回真，并更新共享的当前登录用户信息.
+  // 如果不匹配，返回假，显示错误信息。
   bool checkLink(unsigned short check_mode);
-
-  bool getMouseInputState() { return true; }
-
-  bool getKeyboardInputState() { return true; }
+  bool getMouseInputState() { return true; }     // 允许鼠标输入
+  bool getKeyboardInputState() { return true; }  // 允许键盘输入
 
  private:
-  // Used to record client's input of name.
+  // 用于记录用户输入的名称
   std::wstring name_request_ = {};
-
-  // Used to record client's unput of password.
+  // 用于记录用户输入的密码
   std::wstring password_request_ = {};
-
-  // Used to write current user info.
-  User* current_user_;
 };
 }  // namespace library_management_sys
-#endif  // LMS_SPECIFIC_SCENE_LOGIN_PAGE_H_
+#endif  // LMS_INHERITANCE_SCENE_LOGIN_PAGE_H_

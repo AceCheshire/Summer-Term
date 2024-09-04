@@ -1,8 +1,12 @@
 005 002 0007 0 Library Management System
 130 002 0007 0 , hello
-142 002 0007 0 Exit
+142 002 0007 1 Exit
 010 010 0007 0 Management >
 020 013 0007 1 User
 020 016 0007 1 Book
 010 019 0007 0 Analysis >
-020 022 0007 1 Statistics
+020 022 0007 0 Statistics
+020 025 0007 0 Best Book:
+020 028 0007 0 Best Reader:
+020 031 0007 0 Borrowing Number:
+113 033 0007 0 Borrowing Trend

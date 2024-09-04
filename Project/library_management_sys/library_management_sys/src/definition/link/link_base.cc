@@ -1,62 +1,38 @@
-
-// * License: Apache 2.0
-// * File: link_base.cc
-// * Author: Mai Tianle
-// * Date: 2024-08-08
-// * Description: Define class Link.
+// * 文件：link_base.cc
+// * 作者：麦天乐
+// * 介绍：定义 Link 类。
 #include "inc/base/link_base.h"
 
-#include <windows.h>
-
-#include <iostream>
 #include <string>
 
-#include "inc/base/error_base.h"
-#include "inc/base/page_base.h"
+#include "inc/app_const.h"
 namespace library_management_sys {
-Link::Link(Scheduler& attached_scheduler, const std::wstring& symbol_str,
-           unsigned short this_scene_serial, unsigned short next_scene_serial,
-           unsigned short check_mode)
-    : attached_scheduler_(&attached_scheduler),
-      symbol_str_(symbol_str),
-      this_scene_serial_(this_scene_serial),
-      next_scene_serial_(next_scene_serial),
+Link::Link(const std::wstring& symbol_str, unsigned short this_scene_number,
+           unsigned short next_scene_number, unsigned short check_mode)
+    : symbol_str_(symbol_str),
+      this_scene_number_(this_scene_number),
+      next_scene_number_(next_scene_number),
       check_mode_(check_mode) {}
 
-Link::Link(Scheduler& attached_scheduler, wchar_t* symbol_str,
-           unsigned short this_scene_serial, unsigned short next_scene_serial,
-           unsigned short check_mode) throw(...) {
-  try {
-    attached_scheduler_ = &attached_scheduler;
-    this_scene_serial_ = this_scene_serial;
-    next_scene_serial_ = next_scene_serial;
-    check_mode_ = check_mode;
-    // Check if the char pointer is NULL. If is NULL, throw
-    // kNullPointer and do std::wcerr (red error output).
-    if (&symbol_str != NULL)
-      symbol_str_ = symbol_str;
-    else
-      throw BasicError::kNullPointer;
-  } catch (BasicError& err_num) {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
-                            FOREGROUND_RED);  // Set red color.
-    std::wcout.imbue(std::locale("chs"));
-    std::wcout << std::endl;
-    std::wcerr << L"ERR: function Link | err_num " << err_num
-              << std::endl;  // Print error output.
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
-                            FOREGROUND_WHITE);  // Set default color.
+Link::Link(const wchar_t* symbol_str, unsigned short this_scene_number,
+           unsigned short next_scene_number, unsigned short check_mode) {
+  this_scene_number_ = this_scene_number;
+  next_scene_number_ = next_scene_number;
+  check_mode_ = check_mode;
+  if (symbol_str != NULL) {
+    symbol_str_ = symbol_str;
+  } else {
+    symbol_str = mouse::kDefaultReturn;
   }
 }
 
-bool Link::switchSceneRequest(const std::wstring& request_str,
-                              unsigned short this_scene_serial) {
-  // Match the std::wstring to find correct next_scene_serial_.
-  if (request_str == symbol_str_ && this_scene_serial_ == this_scene_serial) {
-    attached_scheduler_->generalSwitch(next_scene_serial_, check_mode_);
-    return true;
+int Link::stringToSequence(const std::wstring& request_str,
+                           unsigned short this_scene_number) const {
+  // 匹配标识文本与当前场景以确定唯一链接
+  if (request_str == symbol_str_ && this_scene_number_ == this_scene_number) {
+    return 1000 * check_mode_ + next_scene_number_;  // 返回跳转编码
+  } else {
+    return -1;  // 未找到匹配的链接
   }
-  // If not match, return false to start next match.
-  return false;
 }
 }  // namespace library_management_sys

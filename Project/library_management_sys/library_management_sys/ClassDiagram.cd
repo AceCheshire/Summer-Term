@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="library_management_sys::Book">
+    <Position X="35.75" Y="0.5" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>QEAAAAAAACAgIAIAIAgAAAgAARAAIARMAgAEQAAAMAQ=</HashCode>
+      <FileName>inc\base\book_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::Link">
+    <Position X="42.5" Y="0.5" Width="9.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAADAAAAAAAAAAAAAAAAAIAAAAQgAAAAA=</HashCode>
+      <FileName>inc\base\link_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::Mouse">
+    <Position X="42.5" Y="3.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAQAEAAgEEABAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>inc\base\mouse_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::PageUnit">
+    <Position X="27" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAABAAAAAAAAAAAAAAAAAACAAAAAEAAAAAA=</HashCode>
+      <FileName>inc\base\page_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::PageUnitEx">
+    <Position X="26.25" Y="5.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQBAAAAAAAAAAAAAAAAAAAAEAAAAAAAECAAAAACA=</HashCode>
+      <FileName>inc\base\page_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::Page">
+    <Position X="35.75" Y="6.25" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAQAAAAAAAAgAAAAAAAEAAAAABAAAAAAAA=</HashCode>
+      <FileName>inc\base\page_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::Reader">
+    <Position X="42.5" Y="10.75" Width="7.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAACBAAAAAkAAAAAAAAAAAAAAIAAABCgAAAAAAQ=</HashCode>
+      <FileName>inc\base\reader_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::Scene">
+    <Position X="13.25" Y="0.5" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>EAgAAAAAEAACAAAAgAQAQAAAAAAAFAAAAAAACAABAAA=</HashCode>
+      <FileName>inc\base\scene_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::SharedPool">
+    <Position X="31.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAACAAAgAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>inc\base\scene_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::SharedScene">
+    <Position X="14.75" Y="10.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>inc\base\scene_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::Scheduler">
+    <Position X="29.75" Y="13.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAoAEQAAAAAAAAAAIMACEAAEACAAgIAAAAACAAAAA=</HashCode>
+      <FileName>inc\base\scheduler_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::Statistic">
+    <Position X="35.75" Y="9.25" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAAAAAQCAAg=</HashCode>
+      <FileName>inc\base\statistic_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::User">
+    <Position X="42.5" Y="6.75" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAABAAABAAAIAAgAAAAAAAAAAABIAAAEYAAAMgA=</HashCode>
+      <FileName>inc\base\user_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::HelpPage">
+    <Position X="6.25" Y="5.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAEAACAAAgAAAAAAAAAAAAEAAAAAAAAAABAAA=</HashCode>
+      <FileName>inc\inheritance\scene\help_page\help_page.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::HomePage">
+    <Position X="10.5" Y="5.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAEEAAKAAAAAAAAAAAAAAAAEAAAAAAAAAABAAA=</HashCode>
+      <FileName>inc\inheritance\scene\home_page\home_page.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::LoginPage">
+    <Position X="11.5" Y="13.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAEAACAAAAAAAAAAAAAgAAUAEAAAAAAAABAAA=</HashCode>
+      <FileName>inc\inheritance\scene\login_page\login_page.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::PortalPage">
+    <Position X="6" Y="13.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAEAAEAAKAAAAAAAAAAABAAAAEABAAAAAAAABAAA=</HashCode>
+      <FileName>inc\inheritance\scene\portal_page\portal_page.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::SearchPage">
+    <Position X="20.25" Y="5.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAAACEEAAiAAAEIACAgAAAAAAAUAACgCAAAAABAAA=</HashCode>
+      <FileName>inc\inheritance\scene\search_page\search_page.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="library_management_sys::DetailPage">
+    <Position X="15.5" Y="13.25" Width="13.25" />
+    <TypeIdentifier>
+      <HashCode>ECSAAIUAEAECAEAEARAACACAAiAAFAAEBAEAhAABAgA=</HashCode>
+      <FileName>inc\inheritance\scene\detail_page\detail_page.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="library_management_sys::book::Order">
+    <Position X="40.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAgAAAAAAAAAAAAAAAAAAAAAAAJAAQAAAAA=</HashCode>
+      <FileName>inc\app_const.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="library_management_sys::detail_page::PortalTask">
+    <Position X="35.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>inc\app_const.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="library_management_sys::detail_page::SearchTask">
+    <Position X="40.25" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAIEAEAAAAAAAg=</HashCode>
+      <FileName>inc\app_const.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="library_management_sys::detail_page::CheckMode">
+    <Position X="35.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEEAAIAAAAAAAAAEAAC4CBAgAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\app_const.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="library_management_sys::home_page::CheckMode">
+    <Position X="38" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\app_const.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="library_management_sys::portal_page::CheckMode">
+    <Position X="40.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAACAAAAgAAAAAAAA=</HashCode>
+      <FileName>inc\app_const.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="library_management_sys::search_page::PortalTask">
+    <Position X="38" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>inc\app_const.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="library_management_sys::search_page::CheckMode">
+    <Position X="38" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAIEAEAAAAAAAg=</HashCode>
+      <FileName>inc\app_const.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

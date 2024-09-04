@@ -85,11 +85,11 @@
     <Filter Include="源文件\definition\scene\detail_page">
       <UniqueIdentifier>{161bdac0-9818-43b6-bc66-95865c0a7581}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\definition\statistic">
+      <UniqueIdentifier>{5b1c7feb-984d-4ed7-939e-323e8fcc9494}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\base\error_base.h">
-      <Filter>头文件\base</Filter>
-    </ClInclude>
     <ClInclude Include="inc\base\link_base.h">
       <Filter>头文件\base</Filter>
     </ClInclude>
@@ -132,6 +132,12 @@
     <ClInclude Include="inc\inheritance\scene\detail_page\detail_page.h">
       <Filter>头文件\inheritance\scene\detail_page</Filter>
     </ClInclude>
+    <ClInclude Include="inc\app_const.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\base\statistic_base.h">
+      <Filter>头文件\base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\help_page_data.dat">
@@ -146,22 +152,10 @@
     <Text Include="res\portal_page_data.dat">
       <Filter>资源文件</Filter>
     </Text>
-    <Text Include="res\detail_page_data_1.dat">
-      <Filter>资源文件</Filter>
-    </Text>
-    <Text Include="res\detail_page_data_2.dat">
-      <Filter>资源文件</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cc">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\definition\link\link_base.cc">
       <Filter>源文件\definition\link</Filter>
-    </ClCompile>
-    <ClCompile Include="src\definition\mouse\mouse_base.cc">
-      <Filter>源文件\definition\mouse</Filter>
     </ClCompile>
     <ClCompile Include="src\definition\page\page_base.cc">
       <Filter>源文件\definition\page</Filter>
@@ -199,10 +193,38 @@
     <ClCompile Include="src\definition\scene\detail_page\detail_page.cc">
       <Filter>源文件\definition\scene\detail_page</Filter>
     </ClCompile>
+    <ClCompile Include="src\definition\statistic\statistic_base.cc">
+      <Filter>源文件\definition\statistic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\definition\mouse\mouse_base.cc">
+      <Filter>源文件\definition\mouse</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\search_page_data.dat">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="res\detail_page_data_1.dat">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\detail_page_data_2.dat">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\detail_page_data_3.dat">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\detail_page_data_4.dat">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\detail_page_data_5.dat">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="res\detail_page_data_6.dat">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,6 @@
-// * License: Apache 2.0
-// * File: scene_config.cc
-// * Author: Mai Tianle
-// * Date: 2024-08-10
-// * Description: Define class Scene.
+// * 文件：scene_base.cc
+// * 作者：麦天乐
+// * 介绍：定义 Scene 类。
 #include "inc/base/scene_base.h"
 
 #include <conio.h>
@@ -11,64 +9,53 @@
 #include <string>
 #include <tuple>
 
-#include "inc/base/error_base.h"
+#include "inc/app_const.h" 
 #include "inc/base/page_base.h"
 namespace library_management_sys {
 Scene::Scene(PageUnitEx& pageunit_list_head)
     : pageunit_list_head_(&pageunit_list_head) {}
 
-void Scene::layoutText() throw(...) {
-  Page tmp_page;  // Create temp Page to use Page interface.
-  PageUnitEx* tmp_pageunit_pointer = pageunit_list_head_;  // Used as iterator
-  // Equivalent to pageunit_list_head_ == NULL
-  if (tmp_pageunit_pointer == NULL) throw kNullPointer;
-  while (tmp_pageunit_pointer != NULL) {
-    tmp_page.pointPaint(tmp_pageunit_pointer->getPageUnit());  // Get and paint
-    tmp_pageunit_pointer = tmp_pageunit_pointer->getNext();    // Iterate
+SharedScene::SharedScene(PageUnitEx& pageunit_list_head)
+    : Scene(pageunit_list_head) {}
+
+// SharedPool 的初始化
+User SharedPool::current_user_;
+User SharedPool::searching_user_;
+Book SharedPool::searching_book_;
+int SharedPool::shared_task_ = 0;
+
+void Scene::layoutText() {
+  PageUnitEx* iterator = pageunit_list_head_;
+  while (iterator != NULL) {  // 遍历链表元素
+    Page::pointPaint(iterator->pos_, iterator->color_, iterator->text_);
+    iterator = iterator->getNext();
   }
 }
 
-std::wstring Scene::inputLine(bool space) {
-  std::wstring tmp_string;  // Result to be maintained
-  wchar_t tmp_char;         // Return of _getch()
-  while ((tmp_char = _getwch()) != L'\r') {
-    // 224 and 0 mean special function keys. 0 and 224 are their first return.
-    if (tmp_char == 224 || tmp_char == 0) std::ignore = _getwch();
-    // Append the string something new
-    if (((L'A' <= tmp_char && tmp_char <= L'Z') ||
-         (L'a' <= tmp_char && tmp_char <= L'z') ||
-         (space && tmp_char == L' ') ||
-         (L'0' <= tmp_char && tmp_char <= L'9') || tmp_char == L'_') &&
-        tmp_string.length() <= scene::adviceLength) {
-      std::wcout.imbue(std::locale("chs"));
-      std::wcout << tmp_char;
-      tmp_string.push_back(tmp_char);
-      // Belows are deleting the end of string
-    } else if (tmp_char == L'\b' && tmp_string.length()) {
-      std::wcout.imbue(std::locale("chs"));
-      std::wcout << L"\b \b";
-      tmp_string.pop_back();
-    }
-  }
-  return tmp_string;
-}
-
-std::wstring Scene::inputLine(bool space, const char& fill_char) {
+std::wstring Scene::inputLine(bool space, bool num, bool en, bool sp, bool ansi,
+                              const wchar_t& fill_char) {
   std::wstring tmp_string;
   wchar_t tmp_char;
-  while ((tmp_char = _getwch()) != L'\r') {
-    if (((L'A' <= tmp_char && tmp_char <= 'Z') ||
-         (L'a' <= tmp_char && tmp_char <= L'z') ||
-         (space && tmp_char == L' ') ||
-         (L'0' <= tmp_char && tmp_char <= L'9') || tmp_char == L'_') &&
-        tmp_string.length() <= scene::adviceLength) {
-      std::wcout.imbue(std::locale("chs"));
-      std::wcout << fill_char;  // Difference
-      tmp_string.push_back(tmp_char);
-    } else if (tmp_char == L'\b' && tmp_string.length()) {
-      std::wcout.imbue(std::locale("chs"));
-      std::wcout << L"\b \b";
-      tmp_string.pop_back();
+  while ((tmp_char = _getwch()) != L'\r') {  // 处理回车
+    if (tmp_char == 224 || tmp_char == 0)
+      std::ignore = _getwch();                             // 处理控制按键
+    if (((en && L'A' <= tmp_char && tmp_char <= 'Z') ||    // 英文字母大写
+         (en && L'a' <= tmp_char && tmp_char <= L'z') ||   // 英文字母小写
+         (space && tmp_char == L' ') ||                    // 空格
+         (num && L'0' <= tmp_char && tmp_char <= L'9') ||  // 数字
+         (sp && (std::wstring(scene::kSpecialChars).find(tmp_char)) !=
+                    std::wstring::npos) ||          // 特殊字符
+         (ansi && scene::kAnsiStart <= tmp_char &&  // 当前语言表意字符
+          tmp_char <= scene::kAnsiEnd)) &&
+        tmp_string.length() <= scene::kAdviceLength) {  // 限制输入长度
+      std::wcout << ((fill_char == L'\0') ? tmp_char
+                                          : fill_char);  // 显示遮罩字符
+      tmp_string.push_back(tmp_char);  // 向数据添加字符
+    } else if (tmp_char == L'\b' && tmp_string.length()) {  // 处理退格
+      if (19968U <= tmp_string.back() && tmp_string.back() <= 40895U)
+        std::wcout << L"\b \b";
+      std::wcout << L"\b \b";  // 删除显示字符（中文则连删两个）
+      tmp_string.pop_back();   // 向数据删除字符
     }
   }
   return tmp_string;

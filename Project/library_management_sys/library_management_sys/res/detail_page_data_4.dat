@@ -1,0 +1,8 @@
+005 002 0007 0 Library Management System
+005 005 0007 1 Back
+015 005 0002 1 Add
+025 005 0004 1 Cancel
+015 008 0007 1 Name
+015 011 0007 1 Author
+015 014 0007 1 Type
+015 017 0007 1 Description

@@ -1,158 +1,85 @@
-// * License: Apache 2.0
-// * File: detail_page.h
-// * Author: Mai Tianle
-// * Date: 2024-08-17
-// * Description: Declare class DetailPage.
+// * 文件：detail_page.h
+// * 作者：麦天乐
+// * 介绍：声明 DetailPage 类。
 #include <windows.h>
 
 #include <string>
 
+#include "inc/base/book_base.h"
 #include "inc/base/page_base.h"
 #include "inc/base/scene_base.h"
 #include "inc/base/user_base.h"
-#include "inc/base/book_base.h"
-#ifndef LMS_SPECIFIC_SCENE_DETAIL_PAGE_H_
-#define LMS_SPECIFIC_SCENE_DETAIL_PAGE_H_
+#ifndef LMS_INHERITANCE_SCENE_DETAIL_PAGE_H_
+#define LMS_INHERITANCE_SCENE_DETAIL_PAGE_H_
 namespace library_management_sys {
-namespace detail_page {
-// Represents the portal task serials for checkLink();
-// Should be the same as search_page::PortalTask and portal_page::CheckMode.
-enum PortalTask { kUser = 1, kBook };
-
-// Represents the search task serials for checkLink();
-// Should be the same as search_page::CheckMode.
-enum SearchTask { kSearch = 1, kUp, kDown, kAdd, kDelete, kModify };
-
-// Belows are guidance texts that are used to wake input column.
-enum CheckMode {
-  kNameLink = 1,
-  kAuthorLink,
-  kTypeLink,
-  kTagLink,
-  kDescriptionLink,
-  kPermissionLink,
-  kPasswordLink,
-  kAddLink,
-  kModifyLink,
-  kCancelLink,
-  kBorrowLink,
-  kReturnLink
-};
-
-constexpr wchar_t kNameText[] = L"Name";
-constexpr wchar_t kAuthorText[] = L"Author";
-constexpr wchar_t kTypeText[] = L"Type";
-constexpr wchar_t kTagText[] = L"Tag";
-constexpr wchar_t kStateText[] = L"State";
-constexpr wchar_t kDescriptionText[] = L"Description";
-constexpr wchar_t kPasswordText[] = L"Password";
-constexpr wchar_t kPermissionText[] = L"Permission";
-constexpr wchar_t kAddText[] = L"Add";
-constexpr wchar_t kModifyText[] = L"Modify";
-constexpr wchar_t kCancelText[] = L"Cancel";
-constexpr wchar_t kHistoryText[] = L"History";
-constexpr wchar_t kReturnText[] = L"Return";
-constexpr wchar_t kBorrowText[] = L"Borrow";
-
-// File name that is used to load LoginPage.
-constexpr wchar_t kPageDataSource[] = L"res/detail_page_data.dat";
-
-constexpr WORD kModifyColor = FOREGROUND_BLUE;
-constexpr WORD kAddColor = FOREGROUND_GREEN;
-constexpr WORD kReturnColor = FOREGROUND_GREEN | FOREGROUND_RED;
-constexpr WORD kBorrowColor = FOREGROUND_GREEN | FOREGROUND_RED;
-constexpr WORD kCancelColor = FOREGROUND_RED;
-
-constexpr COORD kModifyPos = {15,5};
-constexpr COORD kAddPos = {15,5};
-constexpr COORD kReturnPos = {25,5};
-constexpr COORD kBorrowPos = {15,5};
-constexpr COORD kCancelPos = {25,5};
-// The appearance of pointer.
-constexpr wchar_t kPointerText[] = L"*";
-constexpr WORD kPointerColor = FOREGROUND_GREEN | FOREGROUND_RED;
-
-// The symbol of administrator.
-constexpr wchar_t kAdminText[] = L"Administrator";
-
-// The symbol of guest.
-constexpr wchar_t kGuestText[] = L"Guest";
- 
-// How far pointer will appear from the chosen text.
-constexpr COORD kPointerOffset = {-4, 0};
-}  // namespace detail_page
-
-// Used to shape the norm of detail pages.
-// Example:
+// 规定了应用详情页面的范式。示例：
 //    PageUnitEx test_unit_ex;
-//    DetailPage test_detail_page(test_unit_ex);
-class DetailPage : public Scene {
+//    DetailPage test_detail_page(test_unit_ex_1, test_unit_ex_2,
+//                                test_unit_ex_3, test_unit_ex_4, 
+//                                test_unit_ex_5, test_unit_ex_6);
+class DetailPage : public SharedScene {
  public:
-  // The first pageunit_list_head_ will be used to construct the based Scene.
-  DetailPage(PageUnitEx& pageunit_list_head_1, PageUnitEx& pageunit_list_head_2,
-             User& current_user, User& searching_user, Book& searching_book,
-             int& shared_task);  // Constructor.
-
-  // Returns true if no errors are thrown.
-  // Used to start a scene. Example:
+  // 包含六种场景文本，用来显示用户信息和图书信息，分为管理员新增、管理员修改和普通用户查看
+  // 三种情况。其中传入的第一种场景文本会用来初始化基类 Scene 。
+  DetailPage(PageUnitEx& admin_add_user, PageUnitEx& admin_modify_user,
+             PageUnitEx& guest_read_user, PageUnitEx& admin_add_book,
+             PageUnitEx& admin_modify_book, PageUnitEx& guest_read_book);  // 构造函数
+  // 用于启动场景，并返回真。示例：
   //    test_scene.prepareScene();
   bool prepareScene();
-
-  // Works when client is inputting text.
-  // Example:
+  // 在用户输入用户或图书名称时被执行。示例：
   //    while (is_inputting_info_) text_scene.inputInfo();
   void inputInfo();
-
-  // Returns true if User or Book is correctly modified or added.
+  // 用于实现借阅与归还，新增、修改与取消修改。只有点击返回键才会返回真。
   bool checkLink(unsigned short check_mode);
-
-  bool getMouseInputState() { return true; }
-
-  bool getKeyboardInputState() { return true; }
+  bool getMouseInputState() { return true; }     // 允许鼠标输入
+  bool getKeyboardInputState() { return true; }  // 允许键盘输入
 
  private:
-  // Displays book or user information according to guidance text.
-  void displayInfo(COORD offset, WORD color);
-
-  // Returns where the output will be for pointPaint().
-  COORD getInfoPosition(const std::wstring& guidance_text);
-
-  // Matches the given text to find approximate position and draws
-  // pointer at the calculated place.
+  // 按下修改按键的响应，包括修改文件夹，新增历史记录。
+  void modifyAction();
+  // 按下新增按键的响应，包括新建文件夹，新增历史记录。
+  void addAction();
+  // 按下借阅按键的响应，包括调整图书状态，新增历史记录。
+  void borrowAction();
+  // 按下归还按键的响应，包括调整图书状态，新增历史记录。
+  void returnAction();
+  // 根据引导语显示图书或用户信息和相应按键
+  void displayInfo();
+  // 找到给定文本的位置，计算选择指针的位置并显示。
   void pointerDisplay(const std::wstring& match_text);
-
-  void historyDisplay();
-
-  // Used to record the user detail page
+  // 显示图书或用户数据（可自动判断）
+  bool dataDisplay();
+  // 显示图书简介
+  void descriptionDisplay();
+  // 显示图书或用户的借阅历史（可自动判断）
+  bool historyDisplay();
+  // 为 pointPaint() 返回输出坐标，参数为引导语内容。
+  COORD getInfoPosition(const std::wstring& guidance_text);
+  // 记录管理员新增用户页面的场景文本
   PageUnitEx* pageunit_list_head_1_;
-
-  // Used to record the book detail page
+  // 记录管理员修改用户页面的场景文本
   PageUnitEx* pageunit_list_head_2_;
-
-  // Used to read current user info.
-  User* current_user_;
-
-  // Used to read and write searching user info.
-  User* searching_user_;
-
-  // Used to read and write searching book info.
-  Book* searching_book_;
-
-  // Used to record choice in portal_page and search_page.
-  int* shared_task_;
-
-  // Used to record input option of client.
+  // 记录普通用户查看用户页面的场景文本
+  PageUnitEx* pageunit_list_head_3_;
+  // 记录管理员新增图书页面的场景文本
+  PageUnitEx* pageunit_list_head_4_;
+  // 记录管理员修改图书页面的场景文本
+  PageUnitEx* pageunit_list_head_5_;
+  // 记录普通用户查看图书页面的场景文本
+  PageUnitEx* pageunit_list_head_6_;
+  // 记录用户选择的引导语对应的任务指令
   int option_ = 0;
-
-  // Used to record input guidance of client.
+  // 记录用户选择的引导语
   std::wstring option_text_;
-
-  // Used to record client's password request.
+  // 记录用户查阅历史的编号
+  int history_iterator = 0;
+  // 记录用户希望更改的密码
   std::wstring password_request_;
-
-  // Used to record client's input.
+  // 暂时储存用户修改或新建的用户信息
   User temp_user_;
+  // 暂时储存用户修改或新建的图书信息
   Book temp_book_;
 };
 }  // namespace library_management_sys
-#endif  // LMS_SPECIFIC_SCENE_LOGIN_PAGE_H_
+#endif  // LMS_INHERITANCE_SCENE_DETAIL_PAGE_H_

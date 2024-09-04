@@ -1,82 +1,54 @@
-// * License: Apache 2.0
-// * File: book_base.h
-// * Author: Mai Tianle
-// * Date: 2024-08-15
-// * Description: Declare class Book.
+// * 文件：book_base.h
+// * 作者：麦天乐
+// * 介绍：声明 Book 类。
 #include <string>
 #ifndef LMS_BASE_BOOK_BASE_H_
 #define LMS_BASE_BOOK_BASE_H_
-// Path that records book's data.
-#define kBookDataPath(BOOK_NAME) L"res/book/" + BOOK_NAME + L"/detail.dat"
 namespace library_management_sys {
-namespace book {
-enum Order {
-  // It means the order of author_ in detail.dat.
-  kAuthorOffset = 1,
-
-  // It means the order of type_ in detail.dat.
-  kTypeOffset,
-
-  // It means the order of tag_ in detail.dat.
-  kTagOffset,
-
-  // It means the order of state_ in detail.dat.
-  kStateOffset,
-
-  // It means the order of description_ in detail.dat.
-  kDescriptionOffset
-};
-}  // namespace book
-
-// Coordinates information about book and provides public
-// interfaces to access it.
-// Example:
+// 集成图书信息并提供公有访问接口。
+// 示例:
 //    Book test_book;
 class Book {
  public:
-  // Changes name_ and call updateInfo().
+  // 更改成员 name_，并调用一次 updateInfo()。
   void setName(const std::wstring& book_name);
-
-  // Updates data in Book instance by name_.
-  // Used after setName().
+  // 根据 name_ 的值更新 Book 实例中的成员。
   void updateInfo();
-
-  // Clears the members.
-  void clear();
-
-  std::wstring getName() const { return name_; }
-  std::wstring getDescription() const { return description_; }
-  std::wstring getTag() const { return tag_; }
-  std::wstring getAuthor() const { return author_; }
-  std::wstring getType() const { return type_; }
-  std::wstring getState() const { return state_; }
-
   void setAuthor(const std::wstring& author) { author_ = author; }
   void setType(const std::wstring& type) { type_ = type; }
   void setDescription(const std::wstring& description) {
     description_ = description;
   }
   void setState(const std::wstring& state) { state_ = state; }
-  void setTag(const std::wstring& tag) { tag_ = tag; }
+  // 在成员 history_ 的末尾加上新历史记录。
+  // 第一个参数是行为标记，第二个参数是用户名称。
+  void appendHistory(const std::wstring& declaration, const std::wstring& name);
+  // 清空 Book 实例成员的值。
+  void clear();
+  // 保存图书信息到文件中，参数为旧图书名称，成功返回真。
+  bool saveBook(const std::wstring& old_name) const;
+  // 新增图书文件夹，成功返回真。
+  bool addBook() const;
+  std::wstring getName() const { return name_; }
+  std::wstring getDescription() const { return description_; }
+  std::wstring getAuthor() const { return author_; }
+  std::wstring getType() const { return type_; }
+  std::wstring getState() const { return state_; }
+  std::wstring getHistory() const { return history_; }
 
  protected:
-  // Records book name.
+  // 记录图书名称
   std::wstring name_;
-
-  // Records author name of the book.
-  std::wstring author_;
-
-  // Records type of book, like "Education".
-  std::wstring type_;
-
-  // Records book brief introduction.
+  // 记录图书作者
+  std::wstring author_ = L"Unknown";
+  // 记录图书类别，譬如“教育”。
+  std::wstring type_ = L"Unknown";
+  // 记录图书简要介绍
   std::wstring description_;
-
-  // Records book state (borrowed or not).
+  // 记录图书状态（借出或空闲）
   std::wstring state_;
-
-  // Tags that describe a book.
-  std::wstring tag_;
+  // 记录图书历史
+  std::wstring history_;
 };
 }  // namespace library_management_sys
 #endif  // LMS_BASE_BOOK_BASE_H_

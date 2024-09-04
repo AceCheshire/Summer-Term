@@ -1,11 +1,2 @@
-﻿  book_base..cc
-  reader_base.cc
-  detail_page.cc
-  login_page.cc
-  portal_page.cc
-  search_page.cc
-  user_base.cc
-  main.cc
-  正在生成代码...
-D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\library_management_sys\src\definition\scene\detail_page\detail_page.cc(57): warning C4715: “library_management_sys::DetailPage::prepareScene”: 不是所有的控件路径都返回值
+﻿  mouse_base.cc
   library_management_sys.vcxproj -> D:\Documents\Tsinghua\myself\一升二暑假\程设\git_Project\Project\library_management_sys\x64\Debug\library_management_sys.exe

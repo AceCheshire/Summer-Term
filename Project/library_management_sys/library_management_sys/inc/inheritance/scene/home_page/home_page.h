@@ -1,42 +1,28 @@
-// * License: Apache 2.0
-// * File: home_page.h
-// * Author: Mai Tianle
-// * Date: 2024-08-08
-// * Description: Declare class HomePage.
-#include <string>
-
+// * 文件：home_page.h
+// * 作者：麦天乐
+// * 介绍：声明 HomePage 类。
 #include "inc/base/page_base.h"
 #include "inc/base/scene_base.h"
-#ifndef LMS_SPECIFIC_SCENE_HOME_PAGE_H_
-#define LMS_SPECIFIC_SCENE_HOME_PAGE_H_
+#include "inc/base/scheduler_base.h"
+#ifndef LMS_INHERITANCE_SCENE_HOME_PAGE_H_
+#define LMS_INHERITANCE_SCENE_HOME_PAGE_H_
 namespace library_management_sys {
-namespace home_page {
-// File name that is used to load HomePage.
-constexpr wchar_t kPageDataSource[] = L"res/home_page_data.dat";
-}  // namespace home_page
-
-// Used to shape the norm of home pages.
-// Example:
+// 规定了应用主页的范式。示例：
 //    PageUnitEx test_unit_ex;
-//    HomePage test_home_page(test_unit_ex);
+//    HomePage test_home_page(test_unit_ex, test_scehduler);
 class HomePage : public Scene {
  public:
-  HomePage(PageUnitEx& pageunit_list_head);  // Constructor.
-
-  // Returns true if no errors are thrown.
-  // Used to start a scene. Example:
+  HomePage(PageUnitEx& pageunit_list_head, Scheduler& scheduler);  // 构造函数
+  // 用于启动场景，并返回真。示例：
   //    test_scene.prepareScene();
   bool prepareScene();
-
-  void inputInfo() {}                // No input interface
-
-  bool checkLink(unsigned short check_mode) {
-    return true;
-  }  // No check interface
-
-  bool getMouseInputState() { return true; }
-
-  bool getKeyboardInputState() { return true; }
+  void inputInfo() {}                            // 无输入接口
+  bool checkLink(unsigned short check_mode);     //  退出程序
+  bool getMouseInputState() { return true; }     // 允许鼠标输入
+  bool getKeyboardInputState() { return true; }  // 允许键盘输入
+ private:
+  // 用于传递终止程序信息
+  Scheduler* scheduler_ = NULL;
 };
 }  // namespace library_management_sys
-#endif  // LMS_SPECIFIC_SCENE_HOME_PAGE_H_
+#endif  // LMS_INHERITANCE_SCENE_HOME_PAGE_H_

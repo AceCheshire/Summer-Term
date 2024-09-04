@@ -1,8 +1,6 @@
-// * License: Apache 2.0
-// * File: mouse_base.cc
-// * Author: Mai Tianle
-// * Date: 2024-08-08
-// * Description: Define class Mouse.
+// * 文件：mouse_base.cc
+// * 作者：麦天乐
+// * 介绍：定义 Mouse 类。
 #include "inc/base/mouse_base.h"
 
 #include <windows.h>
@@ -12,124 +10,101 @@
 #include "inc/base/page_base.h"
 namespace library_management_sys {
 Mouse::Mouse() {
-  // Get handle of application window
-  handle_output_ = GetStdHandle(STD_OUTPUT_HANDLE);
-  // Get HWND of application window
-  hwnd_foreground_ = GetForegroundWindow();
-  // Init POINT-type mouse position
   point_pos_.x = point_pos_.y = 0;
-  // Init COORD-type mouse position
   coord_pos_.X = coord_pos_.Y = 0;
-  // Get font info
-  GetCurrentConsoleFont(handle_output_, FALSE, &console_font_);
-  // Try to move window. Pay attention that it is not the only chance to move
-  // window, but it also does considering the mouse input convenience as its
-  // reason
-  MoveWindow(hwnd_foreground_, 0, 0, mouse::kClassicWidth,
-             mouse::kClassicHeight, TRUE);
+  GetCurrentConsoleFont(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &console_font_);
+  MoveWindow(GetConsoleWindow(), 0, 0, mouse::kClassicWidth,
+             mouse::kClassicHeight, TRUE);  // 改变窗口大小
 }
 
 std::wstring Mouse::hoverAndClick(PageUnitEx& source_text) {
-  short x, y;  // Temp variables for coord_pos
-  int counter = mouse::kDetectGroupTimes;
-  // Repeat for mouse::kDetectGroupTimes times
+  int counter = mouse::kDetectGroupTimes;  // 定义连续监测计数器
   while (counter--) {
-    Sleep(mouse::kDetectInterval);  // Coordinate function running time
-    // Task 1: Update mouse position
-    GetCursorPos(&point_pos_);  // point_pos_ becomes mouse position on screen
-    ScreenToClient(hwnd_foreground_,
-                   &point_pos_);  // And becomes mouse position on client
-    // Do transform from POINT to COORD for mouse position
-    // Explain:
+    Sleep(mouse::kDetectInterval);  // 调整函数运行时间
+    // 第一步：获取鼠标位置
+    GetCursorPos(&point_pos_);  // point_pos_ -> 鼠标屏幕坐标
+    ScreenToClient(GetConsoleWindow(),
+                   &point_pos_);  // point_pos_ -> 客户端坐标
+    // point_pos_.x -> coord_pos_.X
+    // 以下公式等价于:
     //    console_font_.dwFontSize.X = console_font_.dwFontSize.Y / kFontRatio;
-    //    coord_mouse_pos_ = point_mouse_pos_.x / console_font_.dwFontSize.X.
-    x = (short)(mouse::kFontRatio * point_pos_.x /
-                console_font_.dwFontSize.Y);
-    // Explain:
+    //    coord_pos_.x = point_pos_.x / console_font_.dwFontSize.X.
+    short x =
+        (short)(mouse::kFontRatio * point_pos_.x / console_font_.dwFontSize.Y);
+    // point_pos_.y -> coord_pos_.Y
+    // 以下公式等价于:
     //    short rowInterval = console_font_.dwFontSize.Y * kRowInterval;
-    //    coord_mouse_pos.y = point_mouse_pos_.y / rowInterval.
-    y = (short)((double)point_pos_.y /
-                (console_font_.dwFontSize.Y * mouse::kRowInterval));
+    //    coord_pos.y = point_pos_.y / rowInterval.
+    short y = (short)((double)point_pos_.y /
+                      (console_font_.dwFontSize.Y * mouse::kRowInterval));
     coord_pos_ = {x, y};
-    // Task 2: Update std::wstring that mouse is hovering on
-    readCursorChars(source_text);
-    // Task 3: Detect mouse click.
+    // 第二步：获取鼠标停留的字符串，根据是否变化进行数据更新和显示更新
+    std::wstring ret = readCursorChars();
+    if (ret != read_str_) popLastStr(source_text, ret);
+    // 第三步：检测鼠标输入
     if (kKeyDown(VK_LBUTTON) && read_str_.length()) return read_str_;
   }
-  return mouse::kDefaultReturn;  // If no return in the loop, which means no
-                                 // valid mouse click
+  return mouse::kDefaultReturn;  // 如果没有提前结束，则返回默认值
 }
 
-char Mouse::readChar(COORD coord_pos) {
-  TCHAR cursor_hover_on_char[1];  // Used to record the target char
-  DWORD dword_char;               // Used to be parameter only
-  if (ReadConsoleOutputCharacterW(handle_output_, cursor_hover_on_char, 1,
-                                  coord_pos, &dword_char))
-    return (char)cursor_hover_on_char[0];
-  else
-    return ' ';  // Pay attention that it returns ' ' for default return
+wchar_t Mouse::readChar(COORD coord_pos) {
+  wchar_t ret;          // 记录获得的宽字符
+  DWORD actual_length;  // 记录获得的字符数
+  return ((ReadConsoleOutputCharacterW(GetStdHandle(STD_OUTPUT_HANDLE), &ret, 1,
+                                       coord_pos, &actual_length))
+              ? ret     // 读取成功
+              : L' ');  // 读取失败
 }
 
-void Mouse::readCursorChars(PageUnitEx& source_text) {
-  COORD floating_left_pos = coord_pos_;   // Used as cursor moving left
-  COORD floating_right_pos = coord_pos_;  // Used as cursor moving right
-  floating_right_pos.X++;   // Make that floating_left_pos != floating_right_pos
-  std::wstring read_string;  // Final result (std::wstring)
-  wchar_t read_char;           // Initial result (char)
-  // Get screen buffer information.
+std::wstring Mouse::readCursorChars() {
+  COORD left_float = coord_pos_;   // 左移浮标
+  COORD right_float = coord_pos_;  // 右移浮标
+  right_float.X++;                 // 错开左右浮标
+  std::wstring ret;                // 要返回的宽字符串结果
+  wchar_t read_char;               // 存储 readChar() 的返回值
+  // 获取屏幕缓冲区信息
   CONSOLE_SCREEN_BUFFER_INFO csbi;
-  GetConsoleScreenBufferInfo(handle_output_, &csbi);
-  // Move cursor (floating_right_pos) to refine read_string
+  GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+  // 移动右移浮标，完善要返回的宽字符串
   while (
-      // Assignment and filter invalid character: ' ', '\t', '\n', '\0'
-      ((read_char = readChar(floating_right_pos)) != L' ') &&
-      (read_char != L'\t') && (read_char != L'\n') && (read_char != L'\0') &&
-      // Make sure that the cursor will not go beyond window
-      (floating_right_pos.X <= csbi.srWindow.Right - csbi.srWindow.Left)) {
-    wchar_t read_chars[2] = {read_char};  // Coordinate the parameter to char[]
-    read_string.append(read_chars);    // Refine the result
-    // Move the cursor for next loop
-    floating_right_pos.X++;
-    SetConsoleCursorPosition(handle_output_, floating_right_pos);
+      // 获取字符并过滤无效字符：' '，'\t'，'\n'，'\0'
+      ((read_char = readChar(right_float)) != L' ') && (read_char != L'\t') &&
+      (read_char != L'\n') && (read_char != L'\0') &&
+      // 保证右移浮标不会越过窗口边界
+      (right_float.X <= csbi.srWindow.Right - csbi.srWindow.Left)) {
+    ret.push_back(read_char);
+    right_float.X++;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), right_float);
   }
-  // Move cursor (floating_left_pos) to refine read_string
+  // 移动左移浮标，完善要返回的宽字符串
   while (
-      // Assignment and filter invalid character: ' ', '\t', '\n', '\0'
-      ((read_char = readChar(floating_left_pos)) != L' ') &&
-      (read_char != L'\t') && (read_char != L'\n') && (read_char != L'\0') &&
-      // Make sure that the cursor will not go beyond window
-      (floating_left_pos.X >= 0)) {
-    wchar_t read_chars[2] = {read_char};   // Coordinate the parameter to char[]
-    read_string.insert(0, read_chars);  // Refine the result
-    // Move the cursor for next loop
-    floating_left_pos.X--;
-    SetConsoleCursorPosition(handle_output_, floating_left_pos);
+      // 获取字符并过滤无效字符：' '，'\t'，'\n'，'\0'
+      ((read_char = readChar(left_float)) != L' ') && (read_char != L'\t') &&
+      (read_char != L'\n') && (read_char != L'\0') &&
+      // 保证左移浮标不会越过窗口边界
+      (left_float.X >= 0)) {
+    ret = read_char + ret;
+    left_float.X--;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), left_float);
   }
-  // Update the last highlight if the std::wstring that mouse is hovering on
-  // changes and assign the member read_str_ with the new one
-  if (read_string != read_str_) {
-    popLastStr(source_text, read_string);
-    read_str_ = read_string;
-  }
+  return ret;
 }
 
-void Mouse::popLastStr(PageUnitEx& source_text, std::wstring& new_string) {
-  Page tmp_page;  // Used to apply Page interface
-  // Find the relevant PageUnits from Scene member (pageunit_list_head_)
-  // with a PageUnitEx pointer
-  PageUnitEx* tmp_pointer = NULL;
-  if (read_str_.length())
-    tmp_pointer = source_text.findByText(read_str_);  // Match PageUnitEx
-  // The judge condition means tmp_pointer has its linked PageUnit
-  if (tmp_pointer != NULL)
-    tmp_page.pointPaint(tmp_pointer->getPageUnit());  // Re-paint
-  tmp_pointer = NULL;  // Reset for the next task
-  if (new_string.length())
-    tmp_pointer = source_text.findByText(new_string);  // Match PageUnitEx
-  // The judge condition means tmp_pointer has its linked PageUnit
-  if (tmp_pointer != NULL) {
-    PageUnit tmp_unit = tmp_page.highlight(tmp_pointer->getPageUnit());
-    tmp_page.pointPaint(tmp_unit);  // Re-paint
+void Mouse::popLastStr(PageUnitEx& source_text,
+                       const std::wstring& new_string) {
+  PageUnit* ret = NULL;
+  if (read_str_.length()) {  // 检查函数参数
+    if ((ret = source_text.findByText(read_str_)) != NULL) {  // 寻找场景文本
+      Page::pointPaint(*ret);                                 // 去除高光
+    }
   }
+  ret = NULL;
+  if (new_string.length()) {  // 检查函数参数
+    if ((ret = source_text.findByText(new_string)) != NULL) {  // 寻找场景文本
+      PageUnit processed_ret = Page::highlight(*ret);          // 高光处理
+      Page::pointPaint(processed_ret);
+    }
+  }
+  read_str_ = new_string;  // 更新 read_str_
 }
 }  // namespace library_management_sys
